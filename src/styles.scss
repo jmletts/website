@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    font-family: "Montserrat", serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+$primary-color: rgb(40, 15, 68);
+$secondary-color: rgb(156, 12, 63);
+
+button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin:5px ;
+    font-size: 15px;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: $primary-color;
+    }
+
+}
