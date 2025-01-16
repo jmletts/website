@@ -1,21 +1,60 @@
 <header>
-    <div class="logo">
-      <a href="/">
-        <img src="icons/logo-lineal.svg" alt="Logo Lineal">
-
-      </a>
-    </div>
-    <div class="cta">
+  <div class="logo">
+    <a href="/">
+      <img src="icons/logo-lineal.svg" alt="Logo Lineal">
+    </a>
+  </div>
+  <div class="cta">
     <nav>
       <ul class="nav-links">
-        <li><a href="#inicio">PROYECTOS</a></li>
-        <li><a href="#acerca-de">servicios</a></li>
-        <li><a href="#servicios">Soluciones</a></li>
+        <li>
+          <a
+            id="proyectos"
+            href="#inicio"
+            (click)="setVisibility('showProyect', 'showServs'); rotateImage('proyectos', 180)"
+          >
+            PROYECTOS
+            <img src="icons/flecha-abajo.svg" alt="" class="icon">
+          </a>
+        </li>
+        <li>
+          <a
+            id="servicios"
+            href="#acerca-de"
+            (click)="setVisibility('showServs', 'showProyect'); rotateImage('servicios', 180)"
+          >
+            SERVICIOS
+            <img src="icons/flecha-abajo.svg" alt="" class="icon">
+          </a>
+        </li>
         <li><a href="#servicios">Blog</a></li>
-        <li><a href="#servicios">studio</a></li>
+        <li><a href="#studio">Studio</a></li>
       </ul>
     </nav>
-      <button href="#registrarse" class="button">Ingresar</button>
-    </div>
+    <button href="#registrarse" class="button">Ingresar</button>
+  </div>
 </header>
-  
+
+<div
+  class="tab"
+  *ngIf="showProyect"
+  (mouseleave)="setVisibility('showProyect', 'showServs', false); resetImageRotation('proyectos')"
+>
+  <div *ngFor="let item of listaProyectos">
+    <h4>{{item.name}}</h4>
+      <label>{{item.code}}</label>
+    <p>{{item.description}}</p>
+  </div>
+</div>
+
+<div
+  class="tab"
+  *ngIf="showServs"
+  (mouseleave)="setVisibility('showProyect', 'showServs', false); resetImageRotation('servicios')"
+>
+  <div *ngFor="let item of listaServes">
+    <h4>{{item.name}}</h4>
+    <p>{{item.description}}</p>
+    <button href="#registrarse" class="button">Ingresar</button>
+  </div>
+</div>
