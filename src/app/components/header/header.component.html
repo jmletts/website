@@ -10,7 +10,6 @@
         <li>
           <a
             id="proyectos"
-            href="#inicio"
             (click)="setVisibility('showProyect', 'showServs'); rotateImage('proyectos', 180)"
           >
             PROYECTOS
@@ -20,7 +19,6 @@
         <li>
           <a
             id="servicios"
-            href="#acerca-de"
             (click)="setVisibility('showServs', 'showProyect'); rotateImage('servicios', 180)"
           >
             SERVICIOS
@@ -31,7 +29,7 @@
         <li><a href="#studio">Studio</a></li>
       </ul>
     </nav>
-    <button href="#registrarse" class="button">Ingresar</button>
+    <button [routerLink]="['/login']"   class="button">Ingresar</button>
   </div>
 </header>
 

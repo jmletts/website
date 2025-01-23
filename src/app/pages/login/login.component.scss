@@ -1,0 +1,71 @@
+$primary-color: rgb(40, 15, 68);
+$secondary-color: rgb(156, 12, 63);
+
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 100%;
+    background-color: $secondary-color;
+    position: fixed;
+    
+    div {
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+
+        img {
+            width: 50%;
+            height: 60vh;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+    
+        form {
+            background-color: white;
+            width: 50%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+                H2 {
+                    color: $primary-color;
+                    font-size: 25px;
+                    margin-bottom: 20px;
+                }
+                input {
+                    padding: 14px;
+                    margin-bottom: 10px;
+                    width: 60%;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: $primary-color;
+                    border: 1px solid rgba(40, 15, 68, 0.155);
+                }
+
+                label {
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: $secondary-color;
+                    margin: 10px;
+                    cursor: pointer;
+                }
+
+                a {
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: $primary-color;
+                    margin: 10px;
+                    cursor: pointer;
+                }
+
+            }
+        }
+    }
+
+
