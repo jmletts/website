@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 200px;
+}
+
+li {
+    list-style-type: none;
+    padding: 10px;
+    cursor: pointer;
+
+    a {
+        display: flex;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin: 10px;
+
+        img {
+            width: 15px;
+            margin: 10px;
+        }
+
+        .icon {
+            width: 20px;
+        }
+    }
+}
+
