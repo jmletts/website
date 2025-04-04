@@ -3,14 +3,14 @@
 <div class="login">
     
     <div class="login-form">
-        <img src="images/portadalogin.jpg" alt="">
-    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+     <img src="images/portadalogin.jpg" alt="">
+     <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
         <h2>INICIAR SESION</h2>
             <input id="username" formControlName="username" type="text" placeholder="USUARIO"/>
             <input id="password" formControlName="password" type="password" placeholder="CONTRASEÑA"/>
         <button type="submit">Iniciar sesión</button>
         <label >¿Olvidaste tu contraseña?</label>
         <a >Registrarse</a>
-      </form>
+     </form>
     </div>
 </div>
