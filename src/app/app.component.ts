@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./components/header/header.component";
 import { HomeComponent } from "./website/home/home.component";
 import { LoaderComponent } from "./components/loader/loader.component";
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { Header2Component } from './components/header2/header2.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, HomeComponent, LoaderComponent,CommonModule],
+  imports: [RouterOutlet, Header2Component, HomeComponent, LoaderComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
