@@ -4,6 +4,7 @@
     
     <div class="login-form">
      <img src="images/portadalogin.jpg" alt="">
+
      <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
         <h2>INICIAR SESION</h2>
             <input id="username" formControlName="username" type="text" placeholder="USUARIO"/>
@@ -12,5 +13,6 @@
         <label >¿Olvidaste tu contraseña?</label>
         <a >Registrarse</a>
      </form>
+     
     </div>
 </div>
