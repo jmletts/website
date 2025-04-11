@@ -4,14 +4,15 @@
     
     <div class="login-form">
      <img src="images/portadalogin.jpg" alt="">
-
-     <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-        <h2>INICIAR SESION</h2>
-            <input id="username" formControlName="username" type="text" placeholder="USUARIO"/>
-            <input id="password" formControlName="password" type="password" placeholder="CONTRASEÑA"/>
+     
+     <form [formGroup]="formLogin" (ngSubmit)="addUser()">
+         <h2>INICIAR SESION</h2>      
+            <input id="username" formControlName="username" type="text" placeholder="EMAIL" (click)="displayError = false"/>
+            <input id="password" formControlName="password" type="password" placeholder="PASSWORD" (click)="displayError = false"/>
         <button type="submit">Iniciar sesión</button>
-        <label >¿Olvidaste tu contraseña?</label>
-        <a >Registrarse</a>
+         <div class="text-danger" *ngIf="displayError"><p>Usuario o Contraseña Incorrectos </p></div>
+         <label >¿Olvidaste tu contraseña?</label>
+        <a [routerLink]="['/signin']" routerLinkActive="router-link-active" >Registrarse</a>
      </form>
      
     </div>

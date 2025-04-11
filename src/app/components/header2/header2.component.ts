@@ -1,10 +1,11 @@
 import { animation } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header2',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './header2.component.html',
   styleUrl: './header2.component.scss'
 })
