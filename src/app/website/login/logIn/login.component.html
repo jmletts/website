@@ -7,12 +7,14 @@
      
      <form [formGroup]="formLogin" (ngSubmit)="addUser()">
          <h2>INICIAR SESION</h2>      
+            <label for="name">Email</label>
             <input id="username" formControlName="username" type="text" placeholder="EMAIL" (click)="displayError = false"/>
-            <input id="password" formControlName="password" type="password" placeholder="PASSWORD" (click)="displayError = false"/>
+            <label for="name">Contraseña</label>
+            <input id="password" formControlName="password" type="password" placeholder="CONTRASEÑA" (click)="displayError = false"/>
         <button type="submit">Iniciar sesión</button>
+        <a class="account" [routerLink]="['/signin']" routerLinkActive="router-link-active" >¿Aun no tienes cuenta? Registrate</a>
          <div class="text-danger" *ngIf="displayError"><p>Usuario o Contraseña Incorrectos </p></div>
-         <label >¿Olvidaste tu contraseña?</label>
-        <a [routerLink]="['/signin']" routerLinkActive="router-link-active" >Registrarse</a>
+         <label style="text-transform: initial; color: rgba(0, 0, 0, 0.477);">Recuperar Acceso</label>
      </form>
      
     </div>

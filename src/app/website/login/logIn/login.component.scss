@@ -1,13 +1,49 @@
 $primary-color: rgb(40, 15, 68);
 $secondary-color: rgb(156, 12, 63);
 
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 650;
+    margin: 5px 0px 5px 0px;
+    color: $primary-color;
+    width: 65%;
+    text-transform: uppercase;
 
+    
+}
+
+button {
+    margin: 0px;
+    display: inline;
+}
+
+.account {
+    font-size: 14.5px;
+    color: rgb(33, 136, 67);
+    text-transform: initial;
+    margin-bottom: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 10px;
+
+    &:hover {
+        color: $secondary-color;
+    }
+}
 .text-danger {
     color: $secondary-color;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 10px;
 
+}
+
+.sigin {
+    text-transform: none;
+    background-color:  $secondary-color;
+    padding: 20px;
 }
 .login {
     display: flex;
@@ -40,17 +76,18 @@ $secondary-color: rgb(156, 12, 63);
             height: 60vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             flex-direction: column;
             position: relative;
+            padding: 0px 0px 0px 50px;
                 H2 {
                     color: $primary-color;
                     font-size: 25px;
-                    margin-bottom: 20px;
+                    margin-bottom: 10px;
                 }
                 input {
                     padding: 14px;
-                    margin-bottom: 10px;
+                    margin-bottom: 15px;
                     width: 60%;
                     font-size: 14px;
                     font-weight: 600;
@@ -58,22 +95,6 @@ $secondary-color: rgb(156, 12, 63);
                     border: 1px solid rgba(40, 15, 68, 0.155);
                 }
 
-                label {
-                    font-size: 15px;
-                    font-weight: 700;
-                    color: $secondary-color;
-                    margin: 10px;
-                    cursor: pointer;
-                }
-
-                a {
-                    text-transform: uppercase;
-                    font-size: 16px;
-                    font-weight: 700;
-                    color: $primary-color;
-                    margin: 10px;
-                    cursor: pointer;
-                }
 
             }
         }

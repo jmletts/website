@@ -7,20 +7,21 @@
         <form [formGroup]="formLogin" (ngSubmit)="addUser()">
             <h2>Registrarse</h2>      
                  <label for="name">Nombre</label>
-                 <input id="name" formControlName="name" type="text" placeholder="NAME" (click)="displayError = false" required/>
+                 <input id="name" formControlName="name" type="text" placeholder="NAME"  required/>
                  <label for="name">Apellidos</label>
-                 <input id="lastName" formControlName="lastName" type="text" placeholder="APELLIDOS" (click)="displayError = false" required/>
+                 <input id="lastName" formControlName="lastName" type="text" placeholder="APELLIDOS"  required/>
                  <label for="name">Email</label>
-                 <input id="email" formControlName="email" type="text" placeholder="EMAIL" (click)="displayError = false" required/>
+                 <input id="email" formControlName="email" type="text" placeholder="EMAIL"  required/>
                  <label for="name">Contraseña</label>
-                 <input id="password" formControlName="password" type="text" placeholder="CONTRASEÑA" (click)="displayError = false" required/>
-                 <label class="pas-alert" >La contraseña debe tener al menos 15 caracteres O al menos 8 caracteres que incluyan un número y una letra minúscula.</label>
+                 <input id="password" formControlName="password" type="password" placeholder="CONTRASEÑA"  required/>
+                 <label class="pas-alert" >La contraseña debe tener al menos 10 caracteres O al menos 8 caracteres que incluyan un número y una letra minúscula.</label>
                  <div style="display: flex; align-items: center; gap: 8px; margin-top: 12px;">
-                    <input id="terminos" type="checkbox" formControlName="terms" (click)="displayError = false" style="width: 18px; height: 18px; cursor: pointer; gap: 8px; margin-top: 12px;" />
+                    <input id="terminos" type="checkbox" formControlName="terms" style="width: 18px; height: 18px; cursor: pointer; gap: 8px; margin-top: 12px;" />
                     <label for="terminos" style="font-size: 14px; cursor: pointer;">Aceptar Términos y Condiciones de Uso </label>
                  </div>
                  <button type="submit">Registrarse</button>
                  <a [routerLink]="['/login']" routerLinkActive="router-link-active">¿Ya tienes cuenta? Iniciar Sesion</a>
         </form>
+        <app-loader *ngIf="loading"></app-loader>
     </div>
 </div>

@@ -32,7 +32,6 @@ export class LoginComponent {
         email : this.formLogin.get('username')?.value,
         password : this.formLogin.get('username')?.value,
         lastName : this.formLogin.get('username')?.value,
-        credential : this.formLogin.get('username')?.value,
       }
 
     }
