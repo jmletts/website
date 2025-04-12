@@ -4,6 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { User } from '../../../Interfaces/user';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../../Services/user.service';
+import { Route } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -16,37 +19,51 @@ export class LoginComponent {
   formLogin: FormGroup;
   displayError: boolean = false;
 
-  constructor(private form: FormBuilder) { // Inyectar dependencia del formulario
+  constructor(
+    private form: FormBuilder, 
+    private _userService : UserService,
+  ) { 
     this.formLogin = this.form.group({
-      username: ['', [Validators.required]], // Cambiar "email" por "username"
-      password: ['', [Validators.required]] // Quitar el validador "email" (no aplica aquí)
+      email: ['', [Validators.email]], 
+      password: ['', [Validators.required]] 
     });
   }
 
-  addUser() {
-    console.log(this.formLogin.value);
-    if (!this.hasErrors('required')){
-      // crear objeto de inetarface
-      const user: User = {
-        name : this.formLogin.get('username')?.value,
-        email : this.formLogin.get('username')?.value,
-        password : this.formLogin.get('username')?.value,
-        lastName : this.formLogin.get('username')?.value,
+
+  logIn() {
+      this.formLogin.markAllAsTouched(); // Marca todos los campos como "tocados"
+      if (this.formLogin.invalid) {
+        console.log('Formulario inválido:', this.formLogin.errors);
+        return;
       }
 
-    }
+      const user : User = {
+        email: this.formLogin.get('email')?.value,
+        password: this.formLogin.get('password')?.value,
+      };
+
+              this._userService.logIn(user).subscribe({
+                next: (response : any) => {
+                  // this.loading = false; // Desactiva el estado de carga después de la respuesta
+                  const token = response.token;
+                  console.log (token)
+                  this.formLogin.reset();
+                  alert("registrado")
+                  localStorage.setItem('token', token);
+                  
+
+                }, 
+                error : (event: HttpErrorResponse) => {
+                  //this.loading = false; // Desactiva el estado de carga en caso de error
+                  if (event.error.msg) {
+                    console.log(event.error.msg);
+                  } else {
+                    console.error('Hay un error en el servidor');
+                  }
+                },
+                complete : () => {console.info("complete")}
+              });
   }
-            //email   required
-  hasErrors(errorTyoe : string)  {
-    if (this.formLogin.controls['username'].hasError(errorTyoe) || this.formLogin.controls['password'].hasError(errorTyoe)) {
-      this.formLogin?.setValue({
-        username: '',
-        password: ''
-      });
-      this.displayError = true;
-      return false;
-    }
-    return true; 
-  }
+            
 }
 

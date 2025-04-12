@@ -5,10 +5,10 @@
     <div class="login-form">
      <img src="images/portadalogin.jpg" alt="">
      
-     <form [formGroup]="formLogin" (ngSubmit)="addUser()">
+     <form [formGroup]="formLogin" (ngSubmit)="logIn()">
          <h2>INICIAR SESION</h2>      
             <label for="name">Email</label>
-            <input id="username" formControlName="username" type="text" placeholder="EMAIL" (click)="displayError = false"/>
+            <input id="username" formControlName="email" type="text" placeholder="EMAIL" (click)="displayError = false"/>
             <label for="name">Contraseña</label>
             <input id="password" formControlName="password" type="password" placeholder="CONTRASEÑA" (click)="displayError = false"/>
         <button type="submit">Iniciar sesión</button>

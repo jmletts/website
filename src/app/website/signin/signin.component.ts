@@ -8,7 +8,6 @@ import { UserService } from '../../Services/user.service';
 import { Router } from '@angular/router';
 import { LoaderComponent } from '../../components/loader/loader.component';
 import { HttpErrorResponse } from '@angular/common/http';
-import { log } from 'console';
 
 @Component({
   selector: 'app-signin',
@@ -51,21 +50,24 @@ export class SigninComponent {
 
       this.loading = true;
       setTimeout(() => {
-        this._userService.signIn(user).subscribe(
-          data => {
+        // implemnetar rxjs
+
+        this._userService.signIn(user).subscribe({
+          next: (v) => {
             this.loading = false; // Desactiva el estado de carga después de la respuesta
             this.formLogin.reset();
             this.router.navigate(['/login']);
-          },
-          (event: HttpErrorResponse) => {
+          }, 
+          error : (event: HttpErrorResponse) => {
             this.loading = false; // Desactiva el estado de carga en caso de error
             if (event.error.msg) {
               console.log(event.error.msg);
             } else {
               console.error('Hay un error en el servidor');
             }
-          }
-        );
+          },
+          complete : () => {console.info("complete")}
+        });
       }, 2000); 
 
 

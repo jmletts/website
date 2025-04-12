@@ -12,10 +12,15 @@ export class UserService {
   private apiUrl : string;
   constructor(private http : HttpClient) {
     this.apiUrl = environment.apiUrl;
-    this.appUrl = 'api/user/register' //enlace dl backendpara el registro
+    this.appUrl = 'api/user' //enlace dl backendpara el registro
    }
   
    signIn (user : User) : Observable <any> {
-    return this.http.post(`${this.apiUrl}${this.appUrl}`, user);
+    return this.http.post(`${this.apiUrl}${this.appUrl}/register`, user);
    }
+
+   logIn (user : User) : Observable <string> {
+    return this.http.post<string>(`${this.apiUrl}${this.appUrl}/login`, user);
+   }
+
 }
