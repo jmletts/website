@@ -1,21 +1,43 @@
-
-  
+<app-loader *ngIf="loading"></app-loader>
 <div class="login">
-    
-    <div class="login-form">
-     <img src="images/portadalogin.jpg" alt="">
-     
-     <form [formGroup]="formLogin" (ngSubmit)="logIn()">
-         <h2>INICIAR SESION</h2>      
-            <label for="name">Email</label>
-            <input id="username" formControlName="email" type="text" placeholder="EMAIL" (click)="displayError = false"/>
-            <label for="name">Contraseña</label>
-            <input id="password" formControlName="password" type="password" placeholder="CONTRASEÑA" (click)="displayError = false"/>
-        <button type="submit">Iniciar sesión</button>
-        <a class="account" [routerLink]="['/signin']" routerLinkActive="router-link-active" >¿Aun no tienes cuenta? Registrate</a>
-         <div class="text-danger" *ngIf="displayError"><p>Usuario o Contraseña Incorrectos </p></div>
-         <label style="text-transform: initial; color: rgba(0, 0, 0, 0.477);">Recuperar Acceso</label>
-     </form>
-     
-    </div>
+  <div class="login-form">
+    <img src="images/portadalogin.jpg" alt="" />
+
+    <form [formGroup]="formLogin" (ngSubmit)="logIn()">
+      <h2>INICIAR SESION</h2>
+      <label for="name">Email</label>
+      <input
+        id="username"
+        formControlName="email"
+        type="text"
+        placeholder="EMAIL"
+        (click)="displayError = false"
+      />
+      <label for="name">Contraseña</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        placeholder="CONTRASEÑA"
+        (click)="displayError = false"
+      />
+      <button type="submit">Iniciar sesión</button>
+      <a
+        class="account"
+        [routerLink]="['/signin']"
+        routerLinkActive="router-link-active"
+        >¿Aun no tienes cuenta? Registrate</a
+      >
+      <div class="text-danger" *ngIf="displayError">
+        <p>Usuario o Contraseña Incorrectos</p>
+      </div>
+      <a>Recuperar Acceso</a>
+      <a
+        [routerLink]="['/']"
+        routerLinkActive="router-link-active"
+        style="color: rgb(156, 12, 63)"
+        >⬅ Regresar la web</a
+      >
+    </form>
+  </div>
 </div>

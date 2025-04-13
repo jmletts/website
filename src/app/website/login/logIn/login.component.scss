@@ -18,6 +18,18 @@ button {
     display: inline;
 }
 
+a {
+    display: block;
+    font-weight: 650;
+    margin: 5px 0px 5px 0px;
+    color: $primary-color;
+    width: 65%;
+    text-transform: uppercase;
+    text-transform: initial; 
+    color: rgba(0, 0, 0, 0.477); 
+    font-size: 14px;
+    text-decoration: none;
+}
 .account {
     font-size: 14.5px;
     color: rgb(33, 136, 67);
@@ -54,7 +66,6 @@ button {
     width: 100%;
     background-color: $secondary-color;
     position: fixed;
-    z-index: 100000;
     
 
     div {

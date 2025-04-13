@@ -13,10 +13,18 @@ $secondary-color: rgb(156, 12, 63);
     width: 100%;
     background-color: $secondary-color;
     position: fixed;
-    z-index: 100000;
 
 }
+.text-danger {
+    color: red;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: initial;
+}
 
+.border-danger {
+    border: 1.5px solid rgb(255, 0, 0);
+}
 .cover {
     background-color: $secondary-color;
     width: 50%;
@@ -89,7 +97,12 @@ label {
 }
 
 .pas-alert {
-    text-transform: initial; color: rgba(0, 0, 0, 0.35); font-weight: 500; margin: 2px; width: 70%;
+    text-transform: initial; 
+    color: rgba(0, 0, 0, 0.35); 
+    font-weight: 500; 
+    margin: 2px; 
+    width: 70%;
+    font-size: 14px ;
 }
 
 button {
