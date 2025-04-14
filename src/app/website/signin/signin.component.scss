@@ -13,6 +13,7 @@ $secondary-color: rgb(156, 12, 63);
     width: 100%;
     background-color: $secondary-color;
     position: fixed;
+    z-index: 999999999;
 
 }
 .text-danger {

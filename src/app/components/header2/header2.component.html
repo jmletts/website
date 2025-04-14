@@ -1,40 +1,72 @@
 <header>
-    <nav class="navbar">
-        <div class="container">
-            <a class="navbar-brand" routerLink="/"><img src="icons/logo-lineal.svg" alt="Logo Lineal"></a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" (click)="openTab = true ; tabMode = 'proyectos' ; arrowAnimation('In', 'proyectos')" routerLinkActive="active" > Proyectos <img src="icons/flecha-abajo.svg" alt="" [ngClass]="arrowState['proyectos']"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="openTab = true ; tabMode = 'services' ; arrowAnimation('In', 'services')" routerLinkActive="active">Servicios <img src="icons/flecha-abajo.svg" alt="" [ngClass]="arrowState['services']"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/contact" routerLinkActive="active">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/contact" routerLinkActive="active">Studio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-sign" routerLink="/login" routerLinkActive="active">Ingresar </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/"
+        ><img src="icons/logo-lineal.svg" alt="Logo Lineal"
+      /></a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="
+              openTab = true;
+              tabMode = 'proyectos';
+              arrowAnimation('In', 'proyectos')
+            "
+            routerLinkActive="active"
+          >
+            Proyectos
+            <img
+              src="icons/flecha-abajo.svg"
+              alt=""
+              [ngClass]="arrowState['proyectos']"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="
+              openTab = true;
+              tabMode = 'services';
+              arrowAnimation('In', 'services')
+            "
+            routerLinkActive="active"
+            >Servicios
+            <img
+              src="icons/flecha-abajo.svg"
+              alt=""
+              [ngClass]="arrowState['services']"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active"
+            >Blog</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active"
+            >Studio</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-sign" routerLink="/login" routerLinkActive="active"
+            >Ingresar
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
-<div class="tab-container" *ngIf="openTab"> 
-        @switch (tabMode) {
-            @case ('proyectos') {
-                <div *ngFor="let item of listaProyectos" class="minTab">
-                    <h4>{{item.name}}</h4>
-                    <p>{{item.description}}</p>
-                </div>
-            }
-            @case ('services') {
-                <div *ngFor="let item of listaServes" class="minTab">
-                    <h4>{{item.name}}</h4>
-                    <p>{{item.description}}</p>
-                </div>
-            }
-        }
+<div class="tab-container" *ngIf="openTab">
+  @switch (tabMode) { @case ('proyectos') {
+  <div *ngFor="let item of listaProyectos" class="minTab">
+    <h4>{{ item.name }}</h4>
+    <p>{{ item.description }}</p>
+  </div>
+  } @case ('services') {
+  <div *ngFor="let item of listaServes" class="minTab">
+    <h4>{{ item.name }}</h4>
+    <p>{{ item.description }}</p>
+  </div>
+  } }
 </div>

@@ -7,7 +7,7 @@
   width: 100%;
   background-color: rgb(255, 255, 255); /* Cambia el color si es necesario */
   position: fixed;
-  z-index: 1000000; /* Asegúrate de que sea mayor que cualquier otro elemento */
+  z-index: 9999999999999999999; /* Asegúrate de que sea mayor que cualquier otro elemento */
   top: 0;
   left: 0; /* Asegúrate de que esté alineado al borde izquierdo */
   margin: 0; /* Elimina márgenes */
