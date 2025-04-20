@@ -8,6 +8,7 @@ import { UserService } from '../../../Services/user.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LoaderComponent } from '../../../components/loader/loader.component';
+import { TokenService } from '../../../Services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent {
   constructor(
     private form: FormBuilder,
     private _userService: UserService,
-    private router: Router
+    private router: Router,
+    private _tokenService: TokenService
   ) {
     this.formLogin = this.form.group({
       email: ['', [Validators.email]],
@@ -53,12 +55,12 @@ export class LoginComponent {
           const token = response.token;
           console.log(token);
           this.formLogin.reset();
-          localStorage.setItem('token', token);
+          this._tokenService.setCookie('token', token, 7); // Guardar el token en la cookie
           this.loading = false;
-          this.router.navigate(['/dashboard']); // Desactiva el estado de carga después de la respuesta
+          this.router.navigate(['/dashboard']);
         },
         error: (event: HttpErrorResponse) => {
-          //this.loading = false; // Desactiva el estado de carga en caso de error
+          this.loading = false;
           if (event.error.msg) {
             console.log(event.error.msg);
           } else {
@@ -70,6 +72,5 @@ export class LoginComponent {
         },
       });
     }, 2000);
-
   }
 }
