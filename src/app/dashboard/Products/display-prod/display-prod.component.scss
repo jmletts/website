@@ -1,0 +1,89 @@
+$primary-color: rgb(40, 15, 68);
+$secondary-color: rgb(156, 12, 63);
+
+.contProd {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+
+    
+    img {
+        width: 120px;
+    }
+}
+
+.product {
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+button {
+    margin: 0px ;
+    width: 30%;
+    margin-right: 20px;
+    font-size: 12px;
+    transition: all 0.3s;
+
+    &:hover {
+        font-size: 12.5px;
+    }
+}
+
+.atributes {
+    h4 {
+        text-transform: uppercase;
+        font-size: 15px;
+        margin: 5px;
+        color: $primary-color;
+    }
+    span {
+        font-size: 14px;
+        color: #00000030;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 5px;
+    }
+    p{
+        font-size: 13.5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 7px 0px 0px 5px;
+        color: rgba(40, 15, 68, 0.568);
+    }
+}
+
+.notStock {
+    color: $secondary-color !important;
+}
+.isStock {
+    color: rgb(18, 151, 21) !important;
+}
+
+.contProd {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.filter {
+    padding: 10px;
+    border: none;
+    margin: 0px 20px 0px 0px;
+    font-weight: 550;
+}
+
+h3 {
+    font-size: 30px;
+    color: $primary-color;
+    text-transform: uppercase;
+    margin: 0px 0px 10px 0px;
+    font-weight: 500;
+}

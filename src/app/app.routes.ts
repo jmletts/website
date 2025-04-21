@@ -4,8 +4,9 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { HomeComponent } from './website/home/home.component';
 import { LoginComponent } from './website/login/logIn/login.component';
 import { SigninComponent } from './website/signin/signin.component';
-import { HomeDashboard } from './Dashboard/home/home.component';
 import { authGuard } from './auth.guard';
+import { DisplayProdComponent } from './Dashboard/Products/display-prod/display-prod.component';
+import { AddProductComponent } from './Dashboard/Products/add-product/add-product.component';
 
 export const routes: Routes = [
   {
@@ -14,17 +15,22 @@ export const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'signin', component: SigninComponent }
-    ]
+      { path: 'signin', component: SigninComponent },
+    ],
   },
   {
     path: 'dashboard',
     component: DashboardLayoutComponent,
     canActivate: [authGuard],
     children: [
-      { path: '', component: HomeDashboard }
-      // acá podés agregar más rutas como productos, usuarios, etc
-    ]
+      {
+        path: 'products', // Cambia "Product" a "products" para que coincida con la URL
+        children: [
+          { path: 'display-products', component: DisplayProdComponent }, // Cambia "display-product" a "display-products"
+          { path: 'add-product', component: AddProductComponent }, // Cambia "display-product" a "display-products"
+        ],
+      },
+    ],
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];

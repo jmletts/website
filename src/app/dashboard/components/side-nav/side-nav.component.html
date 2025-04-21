@@ -2,7 +2,7 @@
   <span class="titles" style="color: rgb(156, 12, 63)">EPLEAR ID</span>
   <div class="side-nav-header" (click)="hasOpen('Acct')">
     <img src="/images/user-profile.jpg" alt="" class="profile-pic" />
-    <h5>Alejandra guzman</h5>
+    <h5>{{userName}} <br> {{userLastName}}</h5>
     <img
       src="icons/flecha-abajo.svg"
       alt=""
@@ -69,8 +69,8 @@
           />
         </a>
         <ul class="sub-menu-link" *ngIf="submenu.Prod">
-          <li><a href="/dashboard/resumen">Ver productos</a></li>
-          <li><a href="/dashboard/ingresos-fecha">agregar producto</a></li>
+          <li><a [routerLink]="['products/display-products']" >Ver productos</a></li>
+          <li><a [routerLink]="['products/add-product']" routerLinkActive="router-link-active" >agregar producto</a></li>
           <li><a href="/dashboard/pagos">categorias </a></li>
           <li><a href="/dashboard/estadistica">Verificar Stock</a></li>
         </ul>

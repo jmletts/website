@@ -3,15 +3,31 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoaderComponent } from '../../../components/loader/loader.component';
 import { TokenService } from '../../../Services/token.service';
+import { OnInit } from '@angular/core';
+import { AuthService } from '../../../Services/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav',
-  imports: [CommonModule, LoaderComponent],
+  imports: [CommonModule, LoaderComponent, RouterModule],
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.scss',
 })
-export class SideNavComponent {
-  constructor(private router: Router, private _tokenService: TokenService) {}
+export class SideNavComponent implements OnInit {
+  ngOnInit(): void {
+    this.userName = this._authService.getUserName();
+    this.userLastName = this._authService.getlastName();
+    console.log('User name:', this.userName, this.userLastName);
+  }
+
+  constructor(
+    private router: Router,
+    private _tokenService: TokenService,
+    private _authService: AuthService
+  ) {}
+
+  userName: string | null = null;  // Permitir 'null' como valor
+  userLastName: string | null = null;
   loading = false;
   submenu = {
     Acct: false,
@@ -51,6 +67,4 @@ export class SideNavComponent {
     }, 2000);
   }
   // Función para eliminar la cookie
-
-
 }

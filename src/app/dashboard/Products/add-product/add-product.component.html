@@ -1,0 +1,72 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" type="text" />
+      <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+        Name is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="price">Price</label>
+      <input id="price" formControlName="price" type="number" />
+      <div *ngIf="form.get('price')?.invalid && form.get('price')?.touched">
+        Price must be a positive number.
+      </div>
+    </div>
+  
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+  
+    <div>
+      <label for="stock">Stock</label>
+      <input id="stock" formControlName="stock" type="number" />
+      <div *ngIf="form.get('stock')?.invalid && form.get('stock')?.touched">
+        Stock must be a positive number.
+      </div>
+    </div>
+  
+    <div>
+      <label for="category">Category</label>
+      <input id="category" formControlName="category" type="text" />
+      <div *ngIf="form.get('category')?.invalid && form.get('category')?.touched">
+        Category is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="image">Image</label>
+      <input id="image" formControlName="image" type="text" />
+    </div>
+  
+    <div>
+      <label for="sku">SKU</label>
+      <input id="sku" formControlName="sku" type="text" />
+      <div *ngIf="form.get('sku')?.invalid && form.get('sku')?.touched">
+        SKU is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="brand">Brand</label>
+      <input id="brand" formControlName="brand" type="text" />
+    </div>
+  
+    <div>
+      <label for="discount">Discount</label>
+      <input id="discount" formControlName="discount" type="number" />
+    </div>
+  
+    <div>
+      <label for="status">Status</label>
+      <input id="status" formControlName="status" type="text" />
+      <div *ngIf="form.get('status')?.invalid && form.get('status')?.touched">
+        Status is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
