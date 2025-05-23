@@ -1,72 +1,168 @@
+<section class="u-container">
+  <div class="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+      <h2>Agregar Producto</h2>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="name">Name</label>
-      <input id="name" formControlName="name" type="text" />
-      <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
-        Name is required.
-      </div>
-    </div>
-  
-    <div>
-      <label for="price">Price</label>
-      <input id="price" formControlName="price" type="number" />
-      <div *ngIf="form.get('price')?.invalid && form.get('price')?.touched">
-        Price must be a positive number.
-      </div>
-    </div>
-  
-    <div>
-      <label for="description">Description</label>
-      <textarea id="description" formControlName="description"></textarea>
-    </div>
-  
-    <div>
+      <label for="name">Nombre</label>
+      <input
+        id="name"
+        formControlName="name"
+        type="text"
+        placeholder="Nombre del producto"
+      />
+      <span
+        *ngIf="form.get('name')?.touched && form.get('name')?.invalid"
+        class="error"
+      >
+        * El nombre es obligatorio.
+      </span>
+
+      <!-- Precio -->
+      <label for="price">Precio</label>
+      <input
+        id="price"
+        formControlName="price"
+        type="number"
+        placeholder="Precio del producto"
+      />
+      <span
+        *ngIf="form.get('price')?.touched && form.get('price')?.hasError('min')"
+        class="error"
+      >
+        * El precio debe ser mayor o igual a 0.
+      </span>
+      <span
+        *ngIf="
+          form.get('price')?.touched && form.get('price')?.hasError('required')
+        "
+        class="error"
+      >
+        * El precio es obligatorio.
+      </span>
+
+      <!-- Descripción -->
+      <label for="description">Descripción</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        placeholder="Descripción del producto"
+      ></textarea>
+
+      <!-- Stock -->
       <label for="stock">Stock</label>
-      <input id="stock" formControlName="stock" type="number" />
-      <div *ngIf="form.get('stock')?.invalid && form.get('stock')?.touched">
-        Stock must be a positive number.
-      </div>
-    </div>
-  
-    <div>
-      <label for="category">Category</label>
-      <input id="category" formControlName="category" type="text" />
-      <div *ngIf="form.get('category')?.invalid && form.get('category')?.touched">
-        Category is required.
-      </div>
-    </div>
-  
-    <div>
-      <label for="image">Image</label>
-      <input id="image" formControlName="image" type="text" />
-    </div>
-  
-    <div>
+      <input
+        id="stock"
+        formControlName="stock"
+        type="number"
+        placeholder="Cantidad en stock"
+      />
+      <span
+        *ngIf="form.get('stock')?.touched && form.get('stock')?.hasError('min')"
+        class="error"
+      >
+        * El stock debe ser mayor o igual a 0.
+      </span>
+      <span
+        *ngIf="
+          form.get('stock')?.touched && form.get('stock')?.hasError('required')
+        "
+        class="error"
+      >
+        * El stock es obligatorio.
+      </span>
+
+
+      <!-- SKU -->
       <label for="sku">SKU</label>
-      <input id="sku" formControlName="sku" type="text" />
-      <div *ngIf="form.get('sku')?.invalid && form.get('sku')?.touched">
-        SKU is required.
-      </div>
+      <input
+        id="sku"
+        formControlName="sku"
+        type="text"
+        placeholder="SKU del producto"
+      />
+      <span
+        *ngIf="form.get('sku')?.touched && form.get('sku')?.invalid"
+        class="error"
+      >
+        * El SKU es obligatorio.
+      </span>
+
+      <!-- Marca -->
+      <label for="brand">Marca</label>
+      <input
+        id="brand"
+        formControlName="brand"
+        type="text"
+        placeholder="Marca del producto"
+      />
+
+
+      <!-- Precio de costo -->
+      <label for="cost_price">Precio de Costo</label>
+      <input
+        id="cost_price"
+        formControlName="cost_price"
+        type="number"
+        placeholder="Precio de costo"
+      />
+
+      <!-- Stock mínimo -->
+      <label for="min_stock">Stock Mínimo</label>
+      <input
+        id="min_stock"
+        formControlName="min_stock"
+        type="number"
+        placeholder="Cantidad mínima en stock"
+      />
+
+      <!-- Peso -->
+      <label for="weight">Peso</label>
+      <input
+        id="weight"
+        formControlName="weight"
+        type="number"
+        step="0.01"
+        placeholder="Peso del producto en kg"
+      />
+
+      <!-- Dimensiones -->
+      <label for="dimensions">Dimensiones</label>
+      <input
+        id="dimensions"
+        formControlName="dimensions"
+        type="text"
+        placeholder="Ej: 30x20x10 cm"
+      />
+
+      <!-- Estado activo -->
+      <label for="is_active">¿Está activo?</label>
+      <select id="is_active" formControlName="is_active">
+        <option [value]="true">Activo</option>
+        <option [value]="false">Inactivo</option>
+      </select>
+
+
+      <!-- Botón de envío -->
+      <button type="submit" [disabled]="form.invalid">Guardar Producto</button>
+    </form>
+  </div>
+
+  <div class="preview-container">
+    <h2>Vista Previa</h2>
+    <div class="preview">
+      <img
+        *ngIf="form.get('image')?.value"
+        [src]="form.get('image')?.value"
+        alt="Imagen del producto"
+      />
+      <h3>{{ form.get("name")?.value }}</h3>
+      <p>{{ form.get("description")?.value }}</p>
+      <p>Precio: {{ form.get("price")?.value | currency }}</p>
+      <p>Stock: {{ form.get("stock")?.value }}</p>
+      <p>SKU: {{ form.get("sku")?.value }}</p>
+      <p>Marca: {{ form.get("brand")?.value }}</p>
+      <p>Descuento: {{ form.get("discount")?.value }}%</p>
+      <p>Estado: {{ form.get("status")?.value }}</p>
     </div>
-  
-    <div>
-      <label for="brand">Brand</label>
-      <input id="brand" formControlName="brand" type="text" />
-    </div>
-  
-    <div>
-      <label for="discount">Discount</label>
-      <input id="discount" formControlName="discount" type="number" />
-    </div>
-  
-    <div>
-      <label for="status">Status</label>
-      <input id="status" formControlName="status" type="text" />
-      <div *ngIf="form.get('status')?.invalid && form.get('status')?.touched">
-        Status is required.
-      </div>
-    </div>
-  
-    <button type="submit" [disabled]="form.invalid">Submit</button>
-  </form>
+  </div>
+</section>
