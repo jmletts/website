@@ -7,6 +7,7 @@ import { SigninComponent } from './website/signin/signin.component';
 import { authGuard } from './auth.guard';
 import { DisplayProdComponent } from './Dashboard/Products/display-prod/display-prod.component';
 import { AddProductComponent } from './Dashboard/Products/add-product/add-product.component';
+import { CompanyComponent } from './Dashboard/eplearId/company/company.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,7 @@ export const routes: Routes = [
           { path: 'add-product', component: AddProductComponent }, // Cambia "display-product" a "display-products"
         ],
       },
+      {path: 'my-company', component: CompanyComponent},
     ],
   },
   { path: '**', redirectTo: '' },

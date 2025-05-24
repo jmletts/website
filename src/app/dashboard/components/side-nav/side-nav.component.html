@@ -16,7 +16,7 @@
     style="width: 100%; margin-bottom: 10px"
   >
     <li><a href="/dashboard/resumen">gestionar</a></li>
-    <li><a href="/dashboard/resumen">Mi Empresa</a></li>
+    <li [routerLink]="['my-company']">Mi Empresa</li>
     <li><a href="/dashboard/ingresos-fecha">seguridad</a></li>
     <li><a (click)="logOut()">cerrar sesion</a></li>
   </ul>

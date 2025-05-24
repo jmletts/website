@@ -5,6 +5,7 @@ $secondary-color: rgb(156, 12, 63);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: $primary-color;
 }
 
 .titles {
@@ -14,6 +15,9 @@ $secondary-color: rgb(156, 12, 63);
   margin-bottom: 10px;
 }
 
+li {
+  list-style: none;
+}
 .arrow {
   width: 12px;
   transform: rotate(90deg);
@@ -149,3 +153,4 @@ $secondary-color: rgb(156, 12, 63);
     transform: translateY(0);
   }
 }
+

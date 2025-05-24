@@ -11,13 +11,13 @@
 
 <div class="contProd">
 
-  <div class="product">
+  <div class="product" *ngFor="let item of products">
     <div class="contProd">
       <img src="images/picture.jpg" alt="Product Image" />
       <div class="atributes">
-        <h4>Nombre del producto</h4>
+        <h4>{{item.name}}</h4>
         <span>Categoria</span>
-        <p>Precio: $XX.XX</p>
+        <p>{{ item.price | currency }}</p>
         <p class="isStock">Sin Stock</p>
       </div>
     </div>
