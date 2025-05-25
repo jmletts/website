@@ -8,6 +8,9 @@ import { authGuard } from './auth.guard';
 import { DisplayProdComponent } from './Dashboard/Products/display-prod/display-prod.component';
 import { AddProductComponent } from './Dashboard/Products/add-product/add-product.component';
 import { CompanyComponent } from './Dashboard/eplearId/company/company.component';
+import { InicioComponent } from './Dashboard/Home/inicio/inicio.component';
+import { PagesComponent } from './layouts/pages/pages.component';
+import { ConfigWebComponent } from './Dashboard/websiteService/my-website/my-website.component';
 
 export const routes: Routes = [
   {
@@ -31,8 +34,25 @@ export const routes: Routes = [
           { path: 'add-product', component: AddProductComponent }, // Cambia "display-product" a "display-products"
         ],
       },
+      {
+        path: 'website', // Cambia "Product" a "products" para que coincida con la URL
+        children: [
+          { path: 'my-website', component: ConfigWebComponent }, // Cambia "display-product" a "display-products"
+          { path: 'add-product', component: AddProductComponent }, // Cambia "display-product" a "display-products"
+        ],
+      },
       {path: 'my-company', component: CompanyComponent},
+      {path: 'home', component: InicioComponent},
     ],
   },
+  {
+    path: 'public',
+    component: PagesComponent,
+    children: [
+      {path: 'page'},
+    ],
+  },
+
   { path: '**', redirectTo: '' },
 ];
+ 

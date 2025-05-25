@@ -1,0 +1,56 @@
+<section class="u-container">
+  <div class="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+      <h2>Configuración del sitio</h2>
+
+      <!-- Subdominio -->
+      <label for="subdomain">Subdominio</label>
+      <input
+        id="subdomain"
+        formControlName="subdomain"
+        type="text"
+        placeholder="{{this.subdomain}}"
+      />
+      <span
+        *ngIf="form.get('subdomain')?.touched && form.get('subdomain')?.invalid"
+        class="error"
+      >
+        * El subdominio es obligatorio.
+      </span>
+
+      <!-- Dominio -->
+      <label for="domain">Dominio</label>
+      <input
+        id="domain"
+        formControlName="domain"
+        type="text"
+        placeholder="Ej: mitienda.com"
+      />
+      <span
+        *ngIf="form.get('domain')?.touched && form.get('domain')?.invalid"
+        class="error"
+      >
+        * El dominio es obligatorio.
+      </span>
+
+      <!-- Tema -->
+      <label for="theme">Tema</label>
+      <input
+        id="theme"
+        formControlName="theme"
+        type="text"
+        placeholder="Ej: default-light"
+      />
+      <span
+        *ngIf="form.get('theme')?.touched && form.get('theme')?.invalid"
+        class="error"
+      >
+        * El tema es obligatorio.
+      </span>
+
+      <!-- Botón de envío -->
+      <button type="submit" [disabled]="form.invalid">Guardar configuración</button>
+    </form>
+  </div>
+
+</section>

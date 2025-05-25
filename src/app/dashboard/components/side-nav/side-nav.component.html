@@ -83,13 +83,12 @@
           <span>SITIO WEB</span>
           <img
             src="icons/flecha-abajo.svg"
-            alt=""
             class="arrow"
             [ngClass]="submenu.Shp ? 'rotateArrowIn' : 'rotateArrowIut'"
           />
         </a>
         <ul class="sub-menu-link" *ngIf="submenu.Shp">
-          <li><a href="/dashboard/resumen">ver pedidos</a></li>
+          <li [routerLink]="['website/my-website']" ><a>Tienda en Linea</a></li>
           <li><a href="/dashboard/ingresos-fecha">agregar paginas</a></li>
           <li><a href="/dashboard/ingresos-fecha">ver paginas</a></li>
           <li><a href="/dashboard/pagos">dominio</a></li>

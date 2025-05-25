@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LoaderComponent } from '../../../components/loader/loader.component';
 import { TokenService } from '../../../Services/token.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ import { TokenService } from '../../../Services/token.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  
   formLogin: FormGroup;
   displayError: boolean = false;
   loading: boolean = false;
@@ -27,11 +29,19 @@ export class LoginComponent {
     private _userService: UserService,
     private router: Router,
     private _tokenService: TokenService
-  ) {
+
+
+  )
+  
+  {
     this.formLogin = this.form.group({
       email: ['', [Validators.email]],
       password: ['', [Validators.required]],
     });
+  }
+
+  ngOnInit(): void {
+    this._tokenService.getCookie('token') ? this.router.navigate(['/dashboard']) : null; 
   }
 
   logIn() {
@@ -57,7 +67,7 @@ export class LoginComponent {
           this.formLogin.reset();
           this._tokenService.setCookie('token', token, 7); // Guardar el token en la cookie
           this.loading = false;
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/home']);
         },
         error: (event: HttpErrorResponse) => {
           this.loading = false;

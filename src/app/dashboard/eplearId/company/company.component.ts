@@ -1,67 +1,72 @@
-
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductService } from '../../../Services/product.service';
+import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CompanyService } from '../../../Services/company.service';
+import { Company } from '../../../Interfaces/company';
 
 @Component({
   selector: 'app-company',
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './company.component.html',
   styleUrl: './company.component.scss'
 })
-export class CompanyComponent {
+export class CompanyComponent implements OnInit {
 
   form: FormGroup;
-  
-    constructor(private fb: FormBuilder, private productService: ProductService) {
-      this.form = this.fb.group({
-        name: ['', [Validators.required]],
-        description: [''],
-        price: [0, [Validators.required, Validators.min(0)]],
-        cost_price: [0, [Validators.required, Validators.min(0)]],
-        sku: ['', [Validators.required]],
-        stock: [0, [Validators.required, Validators.min(0)]],
-        min_stock: [0, [Validators.required, Validators.min(0)]],
-        brand: [''],
-        weight: [0, [Validators.required, Validators.min(0)]],
-        dimensions: ['', [Validators.required]],
-        is_active: [true, [Validators.required]],
-      });
-    }
-  
-  
-    onSubmit() {
-      if (this.form.valid) {
-        console.log('Form Submitted', this.form.value);
-        const productData = {
-          name: this.form.get('name')?.value,
-          description: this.form.get('description')?.value,
-          price: this.form.get('price')?.value,
-          cost_price: this.form.get('cost_price')?.value,
-          sku: this.form.get('sku')?.value,
-          stock: this.form.get('stock')?.value,
-          min_stock: this.form.get('min_stock')?.value,
-          brand: this.form.get('brand')?.value,
-          weight: this.form.get('weight')?.value,
-          dimensions: this.form.get('dimensions')?.value,
-          is_active: this.form.get('is_active')?.value,
-        };
-        
-        this.productService.addProduct(productData).subscribe({
-          next: (response) => {
-            console.log('Product added successfully', response);
-            this.form.reset(); // Reset the form after successful submission
-          },
-          error: (error) => {
-            console.error('Error adding product', error);
-          },
+
+  constructor(
+    private fb: FormBuilder,
+    private companyService: CompanyService
+  ) {
+    this.form = this.fb.group({
+      name: ['', [Validators.required]],
+      description: [''],
+      address: [''],
+      phone: [''],
+      email: ['', [Validators.email]],
+      website: [''],
+      tax_id: [''],
+      is_active: [false]
+    });
+  }
+
+  ngOnInit(): void {
+    this.companyService.getMyCompany().subscribe({
+      next: (res) => {
+        const company = res.company || res; // Ajusta según tu estructura
+        this.form.patchValue({
+          name: company.name,
+          description: company.description,
+          address: company.address,
+          phone: company.phone,
+          email: company.email,
+          website: company.website,
+          tax_id: company.tax_id,
+          is_active: company.is_active
         });
-  
-      } else {
-        console.log('Form is invalid');
+      },
+      error: (err) => {
+        console.error('Error al obtener los datos de la compañía:', err);
       }
-  
+    });
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      const companyData: Company = this.form.value;
+
+      this.companyService.updateMyCompany(companyData).subscribe({
+        next: (res) => {
+          console.log('Compañía actualizada correctamente:', res);
+        },
+        error: (err) => {
+          console.error('Error al actualizar la compañía:', err);
+        }
+      });
+
+    } else {
+      console.log('Formulario inválido');
     }
+  }
 }
