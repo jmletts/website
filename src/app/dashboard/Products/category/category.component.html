@@ -1,0 +1,80 @@
+<section class="u-container">
+   <div class="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+      <h2>Agregar Categoría</h2>
+
+      <!-- Nombre -->
+      <label for="name">Nombre</label>
+      <input
+        id="name"
+        formControlName="name"
+        type="text"
+        placeholder="Nombre de la categoría"
+      />
+      <span
+        *ngIf="form.get('name')?.touched && form.get('name')?.invalid"
+        class="error"
+      >
+        * El nombre es obligatorio.
+      </span>
+
+      <!-- Descripción -->
+      <label for="description">Descripción</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        placeholder="Descripción corta"
+      ></textarea>
+
+      <!-- Categoría Padre -->
+      <label for="parent_id">Categoría Padre (ID)</label>
+      <input
+        id="parent_id"
+        formControlName="parent_id"
+        type="number"
+        placeholder="ID de la categoría padre (opcional)"
+      />
+
+      <!-- Estado activo -->
+      <label for="is_active">¿Está activa?</label>
+      <select id="is_active" formControlName="is_active">
+        <option [value]="true">Activa</option>
+        <option [value]="false">Inactiva</option>
+      </select>
+
+      <!-- Botón de envío -->
+      <button type="submit" [disabled]="form.invalid">Guardar Categoría</button>
+    </form>
+  </div>
+
+  <div class="preview-container">
+    <h2>Categorias :</h2>
+    <div class="preview">
+      <h3>Categoria Nombre <span> Activo</span></h3>
+      <p>Esta es la deciocion corta de l categroia</p>
+
+      <div>
+        <button>Editar</button>
+        <button class="btn-danger">Eliminar</button>
+      </div>
+    </div>
+    <div class="preview">
+      <h3>Categoria Nombre <span> Activo</span></h3>
+      <p>Esta es la deciocion corta de l categroia</p>
+
+      <div>
+        <button>Editar</button>
+        <button class="btn-danger">Eliminar</button>
+      </div>
+    </div>
+    <div class="preview">
+      <h3>Categoria Nombre <span> Activo</span></h3>
+      <p>Esta es la deciocion corta de l categroia</p>
+
+      <div>
+        <button>Editar</button>
+        <button class="btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</section>

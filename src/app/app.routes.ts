@@ -9,8 +9,9 @@ import { DisplayProdComponent } from './Dashboard/Products/display-prod/display-
 import { AddProductComponent } from './Dashboard/Products/add-product/add-product.component';
 import { CompanyComponent } from './Dashboard/eplearId/company/company.component';
 import { InicioComponent } from './Dashboard/Home/inicio/inicio.component';
-import { PagesComponent } from './layouts/pages/pages.component';
 import { ConfigWebComponent } from './Dashboard/websiteService/my-website/my-website.component';
+import { CategoryComponent } from './Dashboard/Products/category/category.component';
+import { UpdateProductComponent } from './Dashboard/Products/update-product/update-product.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,7 @@ export const routes: Routes = [
         children: [
           { path: 'display-products', component: DisplayProdComponent }, // Cambia "display-product" a "display-products"
           { path: 'add-product', component: AddProductComponent }, // Cambia "display-product" a "display-products"
+          { path: 'category', component: CategoryComponent }, // Cambia "display-product" a "display-products"
         ],
       },
       {
@@ -43,13 +45,6 @@ export const routes: Routes = [
       },
       {path: 'my-company', component: CompanyComponent},
       {path: 'home', component: InicioComponent},
-    ],
-  },
-  {
-    path: 'public',
-    component: PagesComponent,
-    children: [
-      {path: 'page'},
     ],
   },
 

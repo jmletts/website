@@ -2,19 +2,29 @@
 $primary-color: rgb(40, 15, 68);
 $secondary-color: rgb(156, 12, 63);
 
+
+
 button {
-    background-color: $primary-color;
-    color: white;
-    border: none;
+  margin: 0px;
+  display: inline;
+  margin: 10px 10px 0px 0px;
+  padding: 10px;
+  font-size: 12px;
+  border: 1.5px solid $primary-color;
+
+  &:hover {
+    background-color: transparent;
+    color: $primary-color;
     cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin:0px ;
-    font-size: 12px;
-    transition: 0.3s;
+  }
+}
 
-    &:hover {
-        background-color: $primary-color;
-    }
-
+  .btn-danger {
+  background-color: $secondary-color;
+  border: 1.5px solid $secondary-color;
+  &:hover {
+    background-color: transparent;
+    color: $secondary-color;
+    cursor: pointer;
+  }
 }

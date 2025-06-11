@@ -1,18 +1,16 @@
 :host {
-    display: flex;
-    height: 100vh;
-  }
-  
-  app-side-nav {
-    width: 250px;
-    flex-shrink: 0;
-  }
-  
-  .content {
-    flex-grow: 1;
+  display: flex;
+  height: auto;
+}
+
+app-side-nav {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.content {
+  flex-grow: 1;
   margin: 0;
   padding: 30px;
-  background-color: rgba(40, 15, 68, 0.127);
-  overflow: scroll;
-  }
-  
+  background-color: rgba(0, 0, 0, 0.114);
+}

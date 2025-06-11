@@ -1,0 +1,119 @@
+$primary-color: rgb(40, 15, 68);
+$secondary-color: rgb(156, 12, 63);
+
+.u-container {
+    z-index: 9999;
+    position: relative;
+    width: 750px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: transparent;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+
+}
+
+.header {
+    width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.222);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.preview-container {
+    background: rgb(255, 255, 255);
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Para que ocupe toda la altura */
+    padding: 20px;
+    h2 {
+        font-size: 17px;
+        color: $secondary-color;
+    }
+}
+
+input, textarea{
+    padding: 14px;
+    background-color: rgb(237, 237, 237);
+    margin-bottom: 15px;
+    width: 90%;
+    font-size: 14px;
+    font-weight: 600;
+    color: $primary-color;
+    border: 1px solid rgba(40, 15, 68, 0.155);
+    margin: 10px 0px 10px 0px;
+    border-radius: 7px;
+
+    &:focus {
+        outline: none;
+        border: 1.5px solid $secondary-color;
+    }
+}
+
+
+
+h2 {
+    font-size: 30px;
+    color: $primary-color;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+label {
+    font-size: 14px;
+    color: $primary-color;
+    text-transform: uppercase;
+    font-weight: 550;
+}
+
+.preview {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: white;
+    padding: 20px;
+}
+button {
+  margin: 0px;
+  display: inline;
+  margin: 10px 10px 0px 0px;
+  padding: 10px;
+  font-size: 12px;
+  border: 1.5px solid $primary-color;
+  border-radius: 5px;
+  width: 250px;
+
+  &:hover {
+    background-color: transparent;
+    color: $primary-color;
+    cursor: pointer;
+  }
+}
+
+.btn-danger {
+  background-color: $secondary-color;
+  border: 1.5px  solid $secondary-color;
+  &:hover {
+    background-color: transparent;
+    color: $secondary-color;
+    cursor: pointer;
+  }
+}

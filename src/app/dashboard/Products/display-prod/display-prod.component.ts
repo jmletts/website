@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../../Services/product.service';
 import { Product } from '../../../Interfaces/product';
+import { UpdateProductComponent } from '../update-product/update-product.component';
+import { AddProductComponent } from "../add-product/add-product.component";
 
 @Component({
   selector: 'app-display-prod',
-  imports: [CommonModule],
+  imports: [CommonModule, AddProductComponent, UpdateProductComponent, UpdateProductComponent],
   templateUrl: './display-prod.component.html',
   styleUrl: './display-prod.component.scss'
 })

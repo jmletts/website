@@ -1,0 +1,51 @@
+<div class="u-container">
+  <div class="header">
+    <h2>Configuración de la compañía</h2>
+    <h2>X</h2>
+  </div>
+  <div class="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+      <label for="name">Nombre</label>
+      <input id="name" formControlName="name" type="text" />
+      <span
+        *ngIf="form.get('name')?.touched && form.get('name')?.invalid"
+        class="error"
+      >
+        * El nombre es obligatorio.
+      </span>
+
+      <label for="description">Descripción</label>
+      <textarea id="description" formControlName="description"></textarea>
+
+      <label for="address">Dirección</label>
+      <input id="address" formControlName="address" type="text" />
+
+      <label for="phone">Teléfono</label>
+      <input id="phone" formControlName="phone" type="text" />
+
+      <label for="email">Correo electrónico</label>
+      <input id="email" formControlName="email" type="email" />
+      <span
+        *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
+        class="error"
+      >
+        * Ingresa un correo válido.
+      </span>
+
+      <label for="website">Sitio web</label>
+      <input id="website" formControlName="website" type="text" />
+
+      <label for="tax_id">RFC / NIF / Tax ID</label>
+      <input id="tax_id" formControlName="tax_id" type="text" />
+
+      <div class="buttons">
+        <button type="submit" [disabled]="form.invalid">
+          Guardar configuración
+        </button>
+        <button type="submit" [disabled]="form.invalid" class="btn-danger">
+          Eliminar Producto
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,180 +1,199 @@
-<aside class="side-nav">
-  <span class="titles" style="color: rgb(156, 12, 63)">EPLEAR ID</span>
-  <div class="side-nav-header" (click)="hasOpen('Acct')">
-    <img src="/images/user-profile.jpg" alt="" class="profile-pic" />
-    <h5>{{userName}} <br> {{userLastName}}</h5>
-    <img
-      src="icons/flecha-abajo.svg"
-      alt=""
-      class="arrow"
-      [ngClass]="submenu.Acct ? 'rotateArrowIn' : 'rotateArrowIut'"
-    />
-  </div>
-  <ul
-    class="sub-menu-link"
-    *ngIf="submenu.Acct"
-    style="width: 100%; margin-bottom: 10px"
-  >
-    <li><a href="/dashboard/resumen">gestionar</a></li>
-    <li [routerLink]="['my-company']">Mi Empresa</li>
-    <li><a href="/dashboard/ingresos-fecha">seguridad</a></li>
-    <li><a (click)="logOut()">cerrar sesion</a></li>
-  </ul>
-  <nav class="side-nav-menu">
-    <ul>
-      <span class="titles">PRINCIPAL</span>
-      <li>
-        <a class="side-nav-link" (click)="hasOpen('Dash')">
-          <img src="/icons/logo-only.svg" alt="" class="profile-pic" />
-          <span>DASHBOARD</span>
-          <img
-            src="icons/flecha-abajo.svg"
-            alt=""
-            class="arrow"
-            [ngClass]="submenu.Dash ? 'rotateArrowIn' : 'rotateArrowIut'"
-          />
-        </a>
-        <ul class="sub-menu-link" *ngIf="submenu.Dash">
-          <li><a href="/dashboard/resumen">Inicio</a></li>
-          <li><a href="/dashboard/ingresos-fecha">Novedades</a></li>
-        </ul>
-      </li>
-      <li>
-        <a class="side-nav-link" (click)="hasOpen('In')">
-          <img src="/icons/ingreso.svg" alt="" class="profile-pic" />
-          <span>INGRESOS</span>
-          <img
-            src="icons/flecha-abajo.svg"
-            alt=""
-            class="arrow"
-            [ngClass]="submenu.In ? 'rotateArrowIn' : 'rotateArrowIut'"
-          />
-        </a>
-        <ul class="sub-menu-link" *ngIf="submenu.In">
-          <li><a href="/dashboard/resumen">Resumen</a></li>
-          <li><a href="/dashboard/ingresos-fecha">Ingresos fecha</a></li>
-          <li><a href="/dashboard/pagos">Pagos</a></li>
-          <li><a href="/dashboard/estadistica">Estadistica</a></li>
-        </ul>
-      </li>
-      <!---->
-      <li>
-        <a class="side-nav-link" (click)="hasOpen('Prod')">
-          <img src="/icons/product.svg" alt="" class="profile-pic" />
-          <span>PRODUCTOS</span>
-          <img
-            src="icons/flecha-abajo.svg"
-            alt=""
-            class="arrow"
-            [ngClass]="submenu.Prod ? 'rotateArrowIn' : 'rotateArrowIut'"
-          />
-        </a>
-        <ul class="sub-menu-link" *ngIf="submenu.Prod">
-          <li><a [routerLink]="['products/display-products']" >Ver productos</a></li>
-          <li><a [routerLink]="['products/add-product']" routerLinkActive="router-link-active" >agregar producto</a></li>
-          <li><a href="/dashboard/pagos">categorias </a></li>
-          <li><a href="/dashboard/estadistica">Verificar Stock</a></li>
-        </ul>
-      </li>
-      <!---->
-      <li>
-        <a class="side-nav-link" (click)="hasOpen('Shp')">
-          <img src="/icons/website.svg" alt="" class="profile-pic" />
-          <span>SITIO WEB</span>
-          <img
-            src="icons/flecha-abajo.svg"
-            class="arrow"
-            [ngClass]="submenu.Shp ? 'rotateArrowIn' : 'rotateArrowIut'"
-          />
-        </a>
-        <ul class="sub-menu-link" *ngIf="submenu.Shp">
-          <li [routerLink]="['website/my-website']" ><a>Tienda en Linea</a></li>
-          <li><a href="/dashboard/ingresos-fecha">agregar paginas</a></li>
-          <li><a href="/dashboard/ingresos-fecha">ver paginas</a></li>
-          <li><a href="/dashboard/pagos">dominio</a></li>
-          <li><a href="/dashboard/estadistica">Configuracion</a></li>
-          <li><a href="/dashboard/estadistica">eplear pay</a></li>
-          <li><a href="/dashboard/estadistica">cambiar tema</a></li>
-          <li><a href="/dashboard/estadistica">menus</a></li>
-          <li><a href="/dashboard/estadistica">conexiones</a></li>
-          <li><a href="/dashboard/estadistica">pedidos</a></li>
-        </ul>
-      </li>
-      <li>
-        <a class="side-nav-link" (click)="hasOpen('One')">
-          <img src="/icons/onepay.svg" alt="" class="profile-pic" />
-          <span>ONE PAY</span>
-          <img
-            src="icons/flecha-abajo.svg"
-            alt=""
-            class="arrow"
-            [ngClass]="submenu.One ? 'rotateArrowIn' : 'rotateArrowIut'"
-          />
-        </a>
-        <ul class="sub-menu-link" *ngIf="submenu.One">
-          <li><a href="/dashboard/resumen">Ver pedidos</a></li>
-          <li><a href="/dashboard/ingresos-fecha">Editar OnePay</a></li>
-          <li><a href="/dashboard/pagos">Pagos</a></li>
-        </ul>
-      </li>
-      <li>
-        <a class="side-nav-link" (click)="hasOpen('Std')">
-          <img src="/icons/studio.svg" alt="" class="profile-pic" />
-          <span>STUDIO</span>
-          <img
-            src="icons/flecha-abajo.svg"
-            alt=""
-            class="arrow"
-            [ngClass]="submenu.Std ? 'rotateArrowIn' : 'rotateArrowIut'"
-          />
-        </a>
-        <ul class="sub-menu-link" *ngIf="submenu.Std">
-          <li><a href="/dashboard/resumen">ingresar pedido</a></li>
-          <li><a href="/dashboard/ingresos-fecha">ver branding</a></li>
-          <li><a href="/dashboard/pagos">manual de marca</a></li>
-        </ul>
-      </li>
-      <span class="titles">OTROS</span>
-      <li>
-        <a class="side-nav-link" (click)="hasOpen('Sett')">
-          <img src="/icons/onepay.svg" alt="" class="profile-pic" />
-          <span>AJUSTES</span>
-          <img
-            src="icons/flecha-abajo.svg"
-            alt=""
-            class="arrow"
-            [ngClass]="submenu.Sett ? 'rotateArrowIn' : 'rotateArrowIut'"
-          />
-        </a>
-        <ul class="sub-menu-link" *ngIf="submenu.Sett">
-          <li><a href="/dashboard/resumen">Pagos</a></li>
-          <li><a href="/dashboard/ingresos-fecha">culqi</a></li>
-          <li><a href="/dashboard/pagos">temas</a></li>
-          <li><a href="/dashboard/estadistica">suscripciones</a></li>
-          <li><a href="/dashboard/estadistica">accesibilidad</a></li>
-          <li><a href="/dashboard/estadistica">eplear id</a></li>
-        </ul>
-      </li>
-      <li>
-        <a class="side-nav-link" (click)="hasOpen('Supp')">
-          <img src="/icons/studio.svg" alt="" class="profile-pic" />
-          <span>SOPORTE</span>
-          <img
-            src="icons/flecha-abajo.svg"
-            alt=""
-            class="arrow"
-            [ngClass]="submenu.Supp ? 'rotateArrowIn' : 'rotateArrowIut'"
-          />
-        </a>
-        <ul class="sub-menu-link" *ngIf="submenu.Supp">
-          <li><a href="/dashboard/resumen">contactar </a></li>
-          <li><a href="/dashboard/ingresos-fecha">agendar </a></li>
-          <li><a href="/dashboard/pagos">blog</a></li>
-          <li><a href="/dashboard/estadistica">Estadistica</a></li>
-        </ul>
-      </li>
+<div class="side-nav-container">
+  <aside class="side-nav">
+    <span class="titles" style="color: rgb(156, 12, 63)">EPLEAR ID</span>
+    <div class="side-nav-header" (click)="hasOpen('Acct')">
+      <img src="/images/user-profile.jpg" alt="" class="profile-pic" />
+      <h5>
+        {{ userName }} <br />
+        {{ userLastName }}
+      </h5>
+      <img
+        src="icons/flecha-abajo.svg"
+        alt=""
+        class="arrow"
+        [ngClass]="submenu.Acct ? 'rotateArrowIn' : 'rotateArrowIut'"
+      />
+    </div>
+    <ul
+      class="sub-menu-link"
+      *ngIf="submenu.Acct"
+      style="width: 100%; margin-bottom: 10px"
+    >
+      <li><a href="/dashboard/resumen">gestionar</a></li>
+      <li [routerLink]="['my-company']">Mi Empresa</li>
+      <li><a href="/dashboard/ingresos-fecha">seguridad</a></li>
+      <li><a (click)="logOut()">cerrar sesion</a></li>
     </ul>
-  </nav>
-</aside>
-
+    <nav class="side-nav-menu">
+      <ul>
+        <span class="titles">PRINCIPAL</span>
+        <li>
+          <a class="side-nav-link" (click)="hasOpen('Dash')">
+            <img src="/icons/logo-only.svg" alt="" class="profile-pic" />
+            <span>DASHBOARD</span>
+            <img
+              src="icons/flecha-abajo.svg"
+              alt=""
+              class="arrow"
+              [ngClass]="submenu.Dash ? 'rotateArrowIn' : 'rotateArrowIut'"
+            />
+          </a>
+          <ul class="sub-menu-link" *ngIf="submenu.Dash">
+            <li [routerLink]="['home']">Inicio</li>
+            <li><a href="/dashboard/ingresos-fecha">Novedades</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="side-nav-link" (click)="hasOpen('In')">
+            <img src="/icons/ingreso.svg" alt="" class="profile-pic" />
+            <span>INGRESOS</span>
+            <img
+              src="icons/flecha-abajo.svg"
+              alt=""
+              class="arrow"
+              [ngClass]="submenu.In ? 'rotateArrowIn' : 'rotateArrowIut'"
+            />
+          </a>
+          <ul class="sub-menu-link" *ngIf="submenu.In">
+            <li><a href="/dashboard/resumen">Resumen</a></li>
+            <li><a href="/dashboard/ingresos-fecha">Ingresos fecha</a></li>
+            <li><a href="/dashboard/pagos">Pagos</a></li>
+            <li><a href="/dashboard/estadistica">Estadistica</a></li>
+          </ul>
+        </li>
+        <!---->
+        <li>
+          <a class="side-nav-link" (click)="hasOpen('Prod')">
+            <img src="/icons/product.svg" alt="" class="profile-pic" />
+            <span>PRODUCTOS</span>
+            <img
+              src="icons/flecha-abajo.svg"
+              alt=""
+              class="arrow"
+              [ngClass]="submenu.Prod ? 'rotateArrowIn' : 'rotateArrowIut'"
+            />
+          </a>
+          <ul class="sub-menu-link" *ngIf="submenu.Prod">
+            <li>
+              <a [routerLink]="['products/display-products']">Ver productos</a>
+            </li>
+            <li>
+              <a
+                [routerLink]="['products/add-product']"
+                routerLinkActive="router-link-active"
+                >agregar producto</a
+              >
+            </li>
+            <li
+              [routerLink]="['products/category']"
+              routerLinkActive="router-link-active"
+            >
+              categorias
+            </li>
+            <li><a href="/dashboard/estadistica">Verificar Stock</a></li>
+          </ul>
+        </li>
+        <!---->
+        <li>
+          <a class="side-nav-link" (click)="hasOpen('Shp')">
+            <img src="/icons/website.svg" alt="" class="profile-pic" />
+            <span>SITIO WEB</span>
+            <img
+              src="icons/flecha-abajo.svg"
+              class="arrow"
+              [ngClass]="submenu.Shp ? 'rotateArrowIn' : 'rotateArrowIut'"
+            />
+          </a>
+          <ul class="sub-menu-link" *ngIf="submenu.Shp">
+            <li [routerLink]="['website/my-website']">
+              <a>Tienda en Linea</a>
+            </li>
+            <li><a href="/dashboard/ingresos-fecha">agregar paginas</a></li>
+            <li><a href="/dashboard/ingresos-fecha">ver paginas</a></li>
+            <li><a href="/dashboard/pagos">dominio</a></li>
+            <li><a href="/dashboard/estadistica">Configuracion</a></li>
+            <li><a href="/dashboard/estadistica">eplear pay</a></li>
+            <li><a href="/dashboard/estadistica">cambiar tema</a></li>
+            <li><a href="/dashboard/estadistica">menus</a></li>
+            <li><a href="/dashboard/estadistica">conexiones</a></li>
+            <li><a href="/dashboard/estadistica">pedidos</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="side-nav-link" (click)="hasOpen('One')">
+            <img src="/icons/onepay.svg" alt="" class="profile-pic" />
+            <span>ONE PAY</span>
+            <img
+              src="icons/flecha-abajo.svg"
+              alt=""
+              class="arrow"
+              [ngClass]="submenu.One ? 'rotateArrowIn' : 'rotateArrowIut'"
+            />
+          </a>
+          <ul class="sub-menu-link" *ngIf="submenu.One">
+            <li><a href="/dashboard/resumen">Ver pedidos</a></li>
+            <li><a href="/dashboard/ingresos-fecha">Editar OnePay</a></li>
+            <li><a href="/dashboard/pagos">Pagos</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="side-nav-link" (click)="hasOpen('Std')">
+            <img src="/icons/studio.svg" alt="" class="profile-pic" />
+            <span>STUDIO</span>
+            <img
+              src="icons/flecha-abajo.svg"
+              alt=""
+              class="arrow"
+              [ngClass]="submenu.Std ? 'rotateArrowIn' : 'rotateArrowIut'"
+            />
+          </a>
+          <ul class="sub-menu-link" *ngIf="submenu.Std">
+            <li><a href="/dashboard/resumen">ingresar pedido</a></li>
+            <li><a href="/dashboard/ingresos-fecha">ver branding</a></li>
+            <li><a href="/dashboard/pagos">manual de marca</a></li>
+          </ul>
+        </li>
+        <span class="titles">OTROS</span>
+        <li>
+          <a class="side-nav-link" (click)="hasOpen('Sett')">
+            <img src="/icons/onepay.svg" alt="" class="profile-pic" />
+            <span>AJUSTES</span>
+            <img
+              src="icons/flecha-abajo.svg"
+              alt=""
+              class="arrow"
+              [ngClass]="submenu.Sett ? 'rotateArrowIn' : 'rotateArrowIut'"
+            />
+          </a>
+          <ul class="sub-menu-link" *ngIf="submenu.Sett">
+            <li><a href="/dashboard/resumen">Pagos</a></li>
+            <li><a href="/dashboard/ingresos-fecha">culqi</a></li>
+            <li><a href="/dashboard/pagos">temas</a></li>
+            <li><a href="/dashboard/estadistica">suscripciones</a></li>
+            <li><a href="/dashboard/estadistica">accesibilidad</a></li>
+            <li><a href="/dashboard/estadistica">eplear id</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="side-nav-link" (click)="hasOpen('Supp')">
+            <img src="/icons/studio.svg" alt="" class="profile-pic" />
+            <span>SOPORTE</span>
+            <img
+              src="icons/flecha-abajo.svg"
+              alt=""
+              class="arrow"
+              [ngClass]="submenu.Supp ? 'rotateArrowIn' : 'rotateArrowIut'"
+            />
+          </a>
+          <ul class="sub-menu-link" *ngIf="submenu.Supp">
+            <li><a href="/dashboard/resumen">contactar </a></li>
+            <li><a href="/dashboard/ingresos-fecha">agendar </a></li>
+            <li><a href="/dashboard/pagos">blog</a></li>
+            <li><a href="/dashboard/estadistica">Estadistica</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+</div>
 <app-loader *ngIf="loading"> </app-loader>

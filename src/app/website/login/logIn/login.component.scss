@@ -16,6 +16,7 @@ label {
 button {
     margin: 0px;
     display: inline;
+    border-radius: 7px;
 }
 
 a {
@@ -76,11 +77,13 @@ a {
         justify-content: center;
         align-items: start;
 
+
         img {
             width: 50%;
             height: 60vh;
             object-fit: cover;
             margin-bottom: 20px;
+            border-radius: 25px 0px 0px 25px;
         }
     
         form {
@@ -93,6 +96,7 @@ a {
             flex-direction: column;
             position: relative;
             padding: 0px 0px 0px 50px;
+            border-radius: 0px 25px 25px 0px;
                 H2 {
                     color: $primary-color;
                     font-size: 25px;
@@ -106,6 +110,7 @@ a {
                     font-weight: 600;
                     color: $primary-color;
                     border: 1px solid rgba(40, 15, 68, 0.155);
+                    border-radius: 7px;
                 }
 
 
