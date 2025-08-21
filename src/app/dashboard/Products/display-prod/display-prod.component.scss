@@ -1,124 +1,92 @@
-$primary-color: rgb(40, 15, 68);
-$secondary-color: rgb(156, 12, 63);
+@use "../../../../global-styles/button" as *;
 
 .contProd {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
 
-    
-    img {
-        width: 100px;
-    }
-}
-
-.product {
-    width: 350px;
-    background-color: rgb(255, 255, 255);
-    margin-top: 0px;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    margin-right: 15px;
-    margin-top: 15px;
-    transition: all 0.2s ;
-    border-radius: 10px;
-
-    &:hover {
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16);
-        cursor: pointer;
-    }
-}
-
-button {
-  margin: 0px;
-  display: inline;
-  margin: 10px 10px 0px 0px;
-  padding: 10px;
-  font-size: 12px;
-  border: 1.5px solid $primary-color;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: transparent;
-    color: $primary-color;
-    cursor: pointer;
+  img {
+    width: 100px;
   }
 }
 
-.btn-danger {
-  background-color: $secondary-color;
-  border: 1.5px solid $secondary-color;
+.product {
+  width: 350px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+  transition: all 0.2s;
+  border-radius: 10px;
+
   &:hover {
-    background-color: transparent;
-    color: $secondary-color;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16);
     cursor: pointer;
   }
 }
 
 .atributes {
-    h4 {
-        text-transform: uppercase;
-        font-size: 13px;
-        margin: 5px;
-        color: $primary-color;
-    }
-    span {
-        font-size: 12px;
-        color: #00000030;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin: 5px;
-    }
-    p{
-        font-size: 13.5px;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin: 7px 0px 0px 5px;
-        color: rgba(40, 15, 68, 0.568);
-    }
+  h4 {
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 5px;
+    color: $primary-color;
+  }
+  span {
+    font-size: 12px;
+    color: #00000030;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 5px;
+  }
+  p {
+    font-size: 13.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 7px 0px 0px 5px;
+    color: rgba(40, 15, 68, 0.568);
+  }
 }
 
 .notStock {
-    color: $secondary-color !important;
+  color: $secondary-color !important;
 }
 .isStock {
-    color: rgb(18, 151, 21) !important;
-    font-size: 12px !important;
+  color: rgb(18, 151, 21) !important;
+  font-size: 12px !important;
 }
 
 .contProd {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-}
-
-.filter {
-    padding: 10px;
-    border: none;
-    margin: 0px 20px 0px 0px;
-    font-weight: 550;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
 }
 
 h3 {
-    font-size: 30px;
-    color: $primary-color;
-    text-transform: uppercase;
-    margin: 0px 0px 10px 0px;
-    font-weight: 500;
+  font-size: 30px;
+  color: $primary-color;
+  text-transform: uppercase;
+  margin: 0px 0px 10px 0px;
+  font-weight: 500;
 }
 
-app-update-product {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.259);
+/* display-prod.component.scss */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.259);
 }
+
+

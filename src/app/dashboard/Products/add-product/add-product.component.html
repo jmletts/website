@@ -1,8 +1,16 @@
+<div class="header">
+  <h2>Agregar Producto</h2>
+  <div>
+    <button class="btn-difuse"><i class="fa fa-check"></i> Nuevo Producto</button>
+    <button class="btn-difuse"><i class="fa fa-check"></i> Importar Productos</button>
+    <button class="btn-difuse"><i class="fa fa-check"></i> Ver Producto</button>
+    <button ><i class="fa fa-check"></i> Publicar</button>
+
+  </div>
+</div>
 <section class="u-container">
   <div class="form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
-      <h2>Agregar Producto</h2>
-
       <label for="name">Nombre</label>
       <input
         id="name"
@@ -71,7 +79,6 @@
         * El stock es obligatorio.
       </span>
 
-
       <!-- SKU -->
       <label for="sku">SKU</label>
       <input
@@ -95,7 +102,6 @@
         type="text"
         placeholder="Marca del producto"
       />
-
 
       <!-- Precio de costo -->
       <label for="cost_price">Precio de Costo</label>
@@ -134,16 +140,8 @@
         placeholder="Ej: 30x20x10 cm"
       />
 
-      <!-- Estado activo -->
-      <label for="is_active">¿Está activo?</label>
-      <select id="is_active" formControlName="is_active">
-        <option [value]="true">Activo</option>
-        <option [value]="false">Inactivo</option>
-      </select>
-
-
       <!-- Botón de envío -->
-      <button type="submit" [disabled]="form.invalid">Guardar Producto</button>
+      <button type="submit" [disabled]="form.invalid">Publicar Producto</button>
     </form>
   </div>
 

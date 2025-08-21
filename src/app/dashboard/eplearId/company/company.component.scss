@@ -90,3 +90,21 @@ label {
     background-color: white;
     padding: 20px;
 }
+
+.btn-difuse{
+  background-color: rgba(0, 0, 0, 0.123);
+  color: $primary-color;
+   border: 1.5px solid rgba(0, 0, 0, 0.028);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  width: auto;
+
+  &:hover {
+    background-color: transparent;
+    color:  $primary-color;
+    cursor: pointer;
+      border: 1.5px solid $primary-color;
+  }
+}

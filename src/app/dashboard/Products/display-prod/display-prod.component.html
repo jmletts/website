@@ -1,35 +1,38 @@
-<h3>productos</h3>
-<div class="filter-container">
-  <input type="text" placeholder="Buscar producto" class="filter"/>
-  <select name="" id="" class="filter">
-    <option value="">Ordenar por</option>
-    <option value="">Nombre</option>
-    <option value="">Precio</option>
-    <option value="">Fecha de creación</option>
-  </select>
-  <button>Buscar</button>
+<div class="header">
+  <h2>Tus productos</h2>
+  <div>
+    <button class="btn-difuse"><i class="fa fa-check"></i> Nuevo Producto</button>
+    <button class="btn-difuse"><i class="fa fa-check"></i> Importar Productos</button>
+    <input type="text" placeholder="Buscar producto" class="filter" />
+    <button ><i class="fa fa-check"></i> Buscar</button>
 
+  </div>
 </div>
 
 <div class="contProd">
-
   <div class="product" *ngFor="let item of products">
     <div class="contProd">
       <img src="images/picture.jpg" alt="Product Image" />
       <div class="atributes">
-        <h4>{{item.name}}</h4>
+        <h4>{{ item.name }}</h4>
         <span>Categoria</span>
         <p>{{ item.price | currency }}</p>
         <p class="isStock">Sin Stock</p>
       </div>
     </div>
     <div class="buttons">
-      <button>Editar</button>
+      <button (click)="openUpdateProductModal(item)">Editar</button>
       <button class="btn-danger">Eliminar</button>
     </div>
-
+  </div>
 </div>
+
+<!-- display-prod.component.html -->
+<div *ngIf="showUpdateProductModal" class="modal-overlay" (click)="showUpdateProductModal = false">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <app-update-product
+      [product]="productSelected"
+      (close)="showUpdateProductModal = false">
+    </app-update-product>
+  </div>
 </div>
-
-
-<app-update-product></app-update-product>

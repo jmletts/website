@@ -1,92 +1,82 @@
-$primary-color: rgb(40, 15, 68);
-$secondary-color: rgb(156, 12, 63);
+@use "../../../../global-styles/button" as *;
+
 
 .u-container {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 1rem;
-    overflow: hidden;
-    
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50% y 50% */
+  gap: 0px 20px;
+  width: 100%;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-
-    
-
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .preview-container {
-    background: rgb(255, 255, 255);
-    position: sticky;
-    top: 0;
-    height: 100vh; /* Para que ocupe toda la altura */
-    padding: 20px;
-    h2 {
-        font-size: 17px;
-        color: $secondary-color;
-    }
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 600px;
 }
 
-input {
-    padding: 14px;
-    background-color: white;
-    margin-bottom: 15px;
-    width: 90%;
-    font-size: 14px;
-    font-weight: 600;
-    color: $primary-color;
-    border: 1px solid rgba(40, 15, 68, 0.155);
-    margin: 10px 0px 10px 0px;
 
-    &:focus {
-        outline: none;
-        border: 1.5px solid $secondary-color;
-    }
-}
+input,
+textarea,
+select {
+  padding: 14px;
+  background-color: white;
+  margin-bottom: 15px;
+  width: 90%;
+  font-size: 14px;
+  font-weight: 600;
+  color: $primary-color;
+  border: 1px solid rgba(40, 15, 68, 0.155);
+  margin: 10px 0px 10px 0px;
+  border-radius: 7px;
 
-textarea {
-    padding: 14px;
-    margin-bottom: 15px;
-    width: 90%;
-    height: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    color: $primary-color;
-    border: 1px solid rgba(40, 15, 68, 0.155);
-    margin: 10px 0px 10px 0px;
-    &:focus {
-        outline: none;
-        border: 1.5px solid $secondary-color;
-    }
-
+  &:focus {
+    outline: none;
+    border: 1.5px solid $secondary-color;
+  }
 }
 
 h2 {
-    font-size: 30px;
-    color: $primary-color;
-    text-transform: uppercase;
-    margin: 0px 0px 25px 0px;
-    font-weight: 500;
+  font-size: 20px;
+  color: $primary-color;
+  text-transform: uppercase;
+  display: inline;
+  font-weight: 550;
+  margin-left: 25px;
 }
 
 label {
-    font-size: 14px;
-    color: $primary-color;
-    text-transform: uppercase;
-    font-weight: 550;
+  font-size: 14px;
+  color: $primary-color;
+  text-transform: uppercase;
+  font-weight: 550;
 }
 
 .preview {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    background-color: white;
-    padding: 20px;
+  width: 85%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  background-color: white;
+  padding: 20px;
+
+  p {
+    width: auto;
+  }
+}
+
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }

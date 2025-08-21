@@ -1,79 +1,45 @@
-<section class="u-container">
-   <div class="form">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
-      <h2>Agregar Categoría</h2>
+<div class="header">
+  <h2>Categorias</h2>
+  <div>
+    <button class="btn-difuse" (click)="addForm()">
+      <i class="fa fa-check"></i> Nueva Categoría
+    </button>
+    <button class="btn-difuse"><i class="fa fa-check"></i> Importar Productos</button>
+    <input type="text" placeholder="Buscar producto" class="filter" />
+    <button ><i class="fa fa-check"></i> Buscar</button>
 
-      <!-- Nombre -->
-      <label for="name">Nombre</label>
-      <input
-        id="name"
-        formControlName="name"
-        type="text"
-        placeholder="Nombre de la categoría"
-      />
-      <span
-        *ngIf="form.get('name')?.touched && form.get('name')?.invalid"
-        class="error"
-      >
+  </div>
+</div>
+<section class="u-container">
+  <div class="form">
+    <form *ngFor="let form of forms; let i = index" [formGroup]="form" (ngSubmit)="onSubmit(i)" class="form">
+      <!-- Campos del formulario -->
+      <label for="name-{{i}}">Nombre</label>
+      <input id="name-{{i}}" formControlName="name" type="text" placeholder="Nombre de la categoría" />
+      <span *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="error">
         * El nombre es obligatorio.
       </span>
 
-      <!-- Descripción -->
-      <label for="description">Descripción</label>
-      <textarea
-        id="description"
-        formControlName="description"
-        placeholder="Descripción corta"
-      ></textarea>
+      <label for="description-{{i}}">Descripción</label>
+      <textarea id="description-{{i}}" formControlName="description" placeholder="Descripción corta"></textarea>
 
-      <!-- Categoría Padre -->
-      <label for="parent_id">Categoría Padre (ID)</label>
-      <input
-        id="parent_id"
-        formControlName="parent_id"
-        type="number"
-        placeholder="ID de la categoría padre (opcional)"
-      />
-
-      <!-- Estado activo -->
-      <label for="is_active">¿Está activa?</label>
-      <select id="is_active" formControlName="is_active">
-        <option [value]="true">Activa</option>
-        <option [value]="false">Inactiva</option>
-      </select>
-
-      <!-- Botón de envío -->
-      <button type="submit" [disabled]="form.invalid">Guardar Categoría</button>
+      <div class="buttons">
+        <button type="submit" [disabled]="form.invalid">Guardar Categoría</button>
+        <button type="button" class="btn-danger" (click)="forms.splice(i, 1)">Cancelar</button>
+      </div>
     </form>
   </div>
 
   <div class="preview-container">
-    <h2>Categorias :</h2>
-    <div class="preview">
-      <h3>Categoria Nombre <span> Activo</span></h3>
-      <p>Esta es la deciocion corta de l categroia</p>
+    <div class="preview" *ngFor="let item of Categories">
+      <h3>{{ item.name }} <span> Activo</span></h3>
+      <p>{{ item.description }}</p>
 
-      <div>
+      <div class="buttons">
         <button>Editar</button>
-        <button class="btn-danger">Eliminar</button>
-      </div>
-    </div>
-    <div class="preview">
-      <h3>Categoria Nombre <span> Activo</span></h3>
-      <p>Esta es la deciocion corta de l categroia</p>
-
-      <div>
-        <button>Editar</button>
-        <button class="btn-danger">Eliminar</button>
-      </div>
-    </div>
-    <div class="preview">
-      <h3>Categoria Nombre <span> Activo</span></h3>
-      <p>Esta es la deciocion corta de l categroia</p>
-
-      <div>
-        <button>Editar</button>
-        <button class="btn-danger">Eliminar</button>
+        <button class="btn-danger" (click)="deleteCategory(item.id)">
+          Eliminar
+        </button>
       </div>
     </div>
   </div>

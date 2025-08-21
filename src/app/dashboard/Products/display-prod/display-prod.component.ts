@@ -7,13 +7,15 @@ import { AddProductComponent } from "../add-product/add-product.component";
 
 @Component({
   selector: 'app-display-prod',
-  imports: [CommonModule, AddProductComponent, UpdateProductComponent, UpdateProductComponent],
+  imports: [CommonModule, UpdateProductComponent, UpdateProductComponent],
   templateUrl: './display-prod.component.html',
   styleUrl: './display-prod.component.scss'
 })
 export class DisplayProdComponent implements OnInit{
  
   products: Product[] = [];
+  showUpdateProductModal = false;
+  productSelected! : Product ;
 
   constructor(private productService: ProductService) { }
 
@@ -28,5 +30,12 @@ export class DisplayProdComponent implements OnInit{
       }
     })
   }
+
+  openUpdateProductModal(product: Product): void {
+    this.productSelected = product;
+    console.log('Producto seleccionado para actualizar:', this.productSelected);
+    this.showUpdateProductModal = true;
+  }       
+
 }
 

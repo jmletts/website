@@ -1,12 +1,11 @@
-$primary-color: rgb(40, 15, 68);
-$secondary-color: rgb(156, 12, 63);
+@use "../../../../global-styles/button" as *;
 
 .u-container {
   width: 100%;
   height: auto;
   display: grid;
   grid-template-columns: 50% 50%;
-  gap: 1rem;
+  gap: 0px 20px;
   overflow: hidden;
 }
 
@@ -19,9 +18,12 @@ $secondary-color: rgb(156, 12, 63);
   position: sticky;
   top: 0;
   height: auto; /* Para que ocupe toda la altura */
+
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   padding: 14px;
   background-color: white;
   margin-bottom: 15px;
@@ -39,16 +41,6 @@ input, select, textarea {
   }
 }
 
-
-
-h2 {
-  font-size: 30px;
-  color: $primary-color;
-  text-transform: uppercase;
-  margin: 0px 0px 25px 0px;
-  font-weight: 500;
-}
-
 label {
   font-size: 14px;
   color: $primary-color;
@@ -57,7 +49,7 @@ label {
 }
 
 .preview {
-  width: 90%;
+  width: 85%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -66,13 +58,15 @@ label {
   background-color: rgb(255, 255, 255);
   padding: 17px;
   margin: 0px 0px 17px 0px;
-  transition: all 0.3s ;
+  transition: all 0.3s;
   border-radius: 14px;
+  gap: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
   h3 {
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: 650;
     color: $primary-color;
-    margin: 0px 0px 5px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,39 +76,33 @@ label {
     color: $primary-color;
     font-size: 15px;
   }
-      &:hover {
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16);
-        cursor: pointer;
-    }
-}
-
-button {
-  margin: 0px;
-  display: inline;
-  margin: 10px 10px 0px 0px;
-  padding: 10px;
-  font-size: 12px;
-  border: 1.5px solid $primary-color;
-  border-radius: 5px;
-
+  div {
+    display: flex;
+  }
   &:hover {
-    background-color: transparent;
-    color: $primary-color;
     cursor: pointer;
   }
 }
 
-.btn-danger {
-  background-color: $secondary-color;
-  border: 1.5px  solid $secondary-color;
-  &:hover {
-    background-color: transparent;
-    color: $secondary-color;
-    cursor: pointer;
-  }
-}
 span {
   color: green;
   font-weight: 600;
   font-size: 17px;
+}
+
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+
+.buttons {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 5px;
+
 }
