@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.43 35.95">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #280f44;
+        stroke: #280f44;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke: #9c0c35;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #9c0c35;
+      }
+
+      .cls-3 {
+        font-family: MontserratThin-SemiBold, 'Montserrat Thin';
+        font-size: 31.72px;
+        font-variation-settings: 'wght' 600;
+        font-weight: 600;
+      }
+
+      .cls-4 {
+        letter-spacing: -.03em;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g>
+      <path class="cls-1" d="M24.11,8.53h0"/>
+      <path class="cls-1" d="M19.34,11.97h0"/>
+      <path class="cls-1" d="M27.58,32.77c-2.52,0-4.81-1.39-5.97-3.63L12.18,10.91,2.93,27.16c-.42,.73-.41,1.6,.01,2.33s1.18,1.16,2.01,1.16h7.97v2.12H4.96c-1.6,0-3.04-.83-3.85-2.21-.81-1.39-.81-3.04-.02-4.44L14.38,2.75c.8-1.41,2.25-2.25,3.87-2.25h0c1.62,0,3.07,.85,3.87,2.26l11.3,19.98c1.19,2.1,1.17,4.6-.04,6.69-1.22,2.09-3.39,3.33-5.8,3.33ZM13.43,8.71l10.06,19.45c.79,1.53,2.36,2.48,4.08,2.48s3.14-.85,3.97-2.28c.83-1.43,.84-3.14,.03-4.58L20.28,3.8c-.42-.74-1.18-1.18-2.03-1.18h0c-.85,0-1.61,.44-2.03,1.18l-2.79,4.91Z"/>
+      <path class="cls-2" d="M12.92,32.77c-2.26,0-4.1-1.84-4.1-4.1s1.84-4.1,4.1-4.1,4.1,1.84,4.1,4.1-1.84,4.1-4.1,4.1Zm0-6.08c-1.09,0-1.98,.89-1.98,1.98s.89,1.98,1.98,1.98,1.98-.89,1.98-1.98-.89-1.98-1.98-1.98Z"/>
+    </g>
+    <text class="cls-3" transform="translate(40.75 27.73)"><tspan x="0" y="0">NE</tspan><tspan class="cls-4" x="46.94" y="0">A</tspan><tspan x="69.59" y="0">T</tspan></text>
+  </g>
+</svg>

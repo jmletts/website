@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { LoaderComponent } from '../../components/loader/loader.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationErrors } from '@angular/forms';
+import { TokenService } from '../../Services/token.service';
 
 @Component({
   selector: 'app-signin',
@@ -28,7 +29,8 @@ export class SigninComponent {
   constructor(
     private form: FormBuilder,
     private _userService: UserService,
-    private router: Router
+    private router: Router,
+    private _tokenService: TokenService
   ) {
     this.formLogin = this.form.group({
       name: ['', [Validators.required]], // Cambiar "email" por "username"
@@ -59,12 +61,16 @@ export class SigninComponent {
 
       this._userService.signIn(user).subscribe({
         next: (v) => {
+          const token = v.token;
+          if (token) {
+            console.log('Token recibido:', token);
+            this._tokenService.setCookie('token', token, 7); // Guarda el token en una cookie por 7 días
+          }
           this.loading = false; // Desactiva el estado de carga después de la respuesta
           this.formLogin.reset();
           this.router.navigate(['/login']);
         },
         error: (event: HttpErrorResponse) => {
-          this.loading = false; // Desactiva el estado de carga en caso de error
           if (event.error.msg) {
             console.log(event.error.msg);
           } else {
@@ -79,6 +85,8 @@ export class SigninComponent {
 
     console.log('Usuario creado:', user);
   }
+
+  
 
   validatePassword(control: AbstractControl): ValidationErrors | null {
     const password = control.value;

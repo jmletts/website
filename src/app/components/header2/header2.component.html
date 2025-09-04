@@ -55,18 +55,19 @@
         </li>
       </ul>
     </div>
+    
+    <div class="tab-container" *ngIf="openTab">
+      @switch (tabMode) { @case ('proyectos') {
+      <div *ngFor="let item of listaProyectos" class="minTab">
+        <h4>{{ item.name }}</h4>
+        <p>{{ item.description }}</p>
+      </div>
+      } @case ('services') {
+      <div *ngFor="let item of listaServes" class="minTab">
+        <h4>{{ item.name }}</h4>
+        <p>{{ item.description }}</p>
+      </div>
+      } }
+    </div>
   </nav>
 </header>
-<div class="tab-container" *ngIf="openTab">
-  @switch (tabMode) { @case ('proyectos') {
-  <div *ngFor="let item of listaProyectos" class="minTab">
-    <h4>{{ item.name }}</h4>
-    <p>{{ item.description }}</p>
-  </div>
-  } @case ('services') {
-  <div *ngFor="let item of listaServes" class="minTab">
-    <h4>{{ item.name }}</h4>
-    <p>{{ item.description }}</p>
-  </div>
-  } }
-</div>

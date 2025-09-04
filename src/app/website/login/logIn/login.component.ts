@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._tokenService.getCookie('token') ? this.router.navigate(['/dashboard']) : null; 
+    this._tokenService.getCookie('token') ? this.router.navigate(['/dashboard/home']) : null; 
   }
 
   logIn() {
