@@ -1,0 +1,165 @@
+@use "../../../../global-styles/button" as *;
+
+.container-welcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.none {
+  display: none !important;
+}
+
+.active {
+  display: flex !important;
+}
+
+.slide {
+  background-color: white;
+  width: 100%;
+  height: 70vh;
+  padding: 30px;
+  border-radius: 30px;
+  width: 700px;
+  display: flex;
+   animation: slideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.slide1-content {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  flex-direction: column;
+  flex: 0 0 90%;
+  max-width: 90%;
+  height: 100%;
+
+  img {
+    height: 60%;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: 19px;
+    margin-bottom: 20px;
+    width: 70%;
+  }
+}
+
+.container-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 10%;
+  max-width: 10%;
+  height: 100%;
+
+  img {
+    width: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    rotate: 270deg;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.slide2-content {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  height: 100%;
+  flex-direction: column;
+  flex: 0 0 90%;
+  max-width: 90%;
+  height: 100%;
+  gap: 10px;
+  overflow: auto;
+
+  h2 {
+    font-size: 35px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: $secondary-color;
+    font-weight: 400;
+    margin: 0px;
+  }
+
+  h3 {
+    font-size: 24px;
+    color: rgba(40, 15, 68, 0.259);
+    text-transform: uppercase{};
+  }
+
+  p {
+    font-size: 17px;
+    margin-bottom: 20px;
+    width: 80%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      color: rgba(40, 15, 68, 0.568);
+      font-weight: 600;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+
+      &:focus {
+        border-color: $primary-color;
+        outline: none;
+      }
+    }
+
+    button {
+        width: 30%;
+    }
+  }
+
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+

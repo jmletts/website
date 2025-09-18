@@ -25,6 +25,7 @@ export class AuthService {
     }
   }
 
+  
 
   getUserName(): string | null {
     return this.user?.name || null;

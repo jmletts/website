@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { AuthService } from '../../../Services/auth.service';
+import { WdwelcomeComponent } from '../../components/wdwelcome/wdwelcome.component';
 
 @Component({
   selector: 'app-inicio',
-  imports: [],
+  imports: [WdwelcomeComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.scss',
 })

@@ -1,1 +1,79 @@
-<p>wdwelcome works!</p>
+<div class="container-welcome" *ngIf="activeModal">
+  <div class="window">
+    <div  *ngIf="currentSlide === 1" class="slide">
+      <div class="slide1-content">
+        <img src="images/mujer-sonriendo.png" alt="" />
+        <h2>Ahora eres tu y tu empresa</h2>
+        <p>
+          Bienvenido a Eplear, gestiona, vende y administra todo tu negocio
+          desde un solo, mantén el control total, todo en una plataforma
+          intuitiva y poderosa.
+        </p>
+        <div>
+          <button>Take a Tour</button>
+          <button>Ver</button>
+        </div>
+      </div>
+      <div class="container-next">
+        <img src="icons/flecha-abajo.svg" alt="" (click)="nextSlide()" />
+      </div>
+    </div>
+
+    <div class="slide" *ngIf="currentSlide === 2">
+        
+      <div class="slide2-content">
+        <h2>¡Ya falta poco!</h2>
+          <h3>Añade tu empresa</h3>
+          <p>
+            Agrega los datos de tu empresa para comenzar a gestionar tus
+            productos y servicios.
+          </p>
+
+          <form [formGroup]="companyForm" (ngSubmit)="createCompany()">
+            <label for="name">Nombre de la Empresa</label>
+            <input
+              id="name"
+              formControlName="name"
+              type="text"
+              placeholder="Nombre de la Empresa"
+            />
+
+            <label for="description">Descripción</label>
+            <input
+              id="description"
+              formControlName="description"
+              type="text"
+              placeholder="Descripción"
+            />
+
+            <label for="address">Dirección</label>
+            <input
+              id="address"
+              formControlName="address"
+              type="text"
+              placeholder="Dirección"
+            />
+
+            <label for="phone">Teléfono (opcional)</label>
+            <input
+              id="phone"
+              formControlName="phone"
+              type="text"
+              placeholder="Teléfono"
+            />
+
+
+
+
+
+            <button id="submit" type="submit">Guardar</button>
+          
+          </form>
+
+      </div>
+      <div class="container-next">
+        <img src="icons/flecha-abajo.svg" alt=""  (click)="nextSlide()" />
+      </div>
+    </div>
+  </div>
+</div>
